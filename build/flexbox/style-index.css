@@ -1,0 +1,69 @@
+/*!***********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/flexbox/style.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************/
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+.taufb {
+  display: flex;
+}
+
+.taufb--justify-flex-start {
+  justify-content: flex-start;
+}
+
+.taufb--justify-flex-end {
+  justify-content: flex-end;
+}
+
+.taufb--justify-flex-center {
+  justify-content: center;
+}
+
+.taufb--justify-flex-between {
+  justify-content: space-between;
+}
+
+.taufb--justify-flex-around {
+  justify-content: space-around;
+}
+
+@media (480px < width <= 782px) {
+  .taufb--justify-tablet-flex-start {
+    justify-content: flex-start;
+  }
+  .taufb--justify-tablet-flex-end {
+    justify-content: flex-end;
+  }
+  .taufb--justify-tablet-flex-center {
+    justify-content: center;
+  }
+  .taufb--justify-tablet-flex-between {
+    justify-content: space-between;
+  }
+  .taufb--justify-tablet-flex-around {
+    justify-content: space-around;
+  }
+}
+@media (width <= 480px) {
+  .taufb--justify-mobile-flex-start {
+    justify-content: flex-start;
+  }
+  .taufb--justify-mobile-flex-end {
+    justify-content: flex-end;
+  }
+  .taufb--justify-mobile-flex-center {
+    justify-content: center;
+  }
+  .taufb--justify-mobile-flex-between {
+    justify-content: space-between;
+  }
+  .taufb--justify-mobile-flex-around {
+    justify-content: space-around;
+  }
+}
+
+/*# sourceMappingURL=style-index.css.map*/
