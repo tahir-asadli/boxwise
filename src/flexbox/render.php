@@ -57,11 +57,38 @@ if ( $ultimate_flexbox_mobile_direction ) {
 	$ultimate_flexbox_classes[] = 'taufb--direction-mobile-' . $ultimate_flexbox_mobile_direction;
 }
 
+// Wrap
+$ultimate_flexbox_wrap            = ! empty( $attributes['wrap'] ) ? $attributes['wrap'] : '';
+$ultimate_flexbox_tablet_wrap     = ! empty( $attributes['tabletWrap'] ) ? $attributes['tabletWrap'] : '';
+$ultimate_flexbox_mobile_wrap     = ! empty( $attributes['mobileWrap'] ) ? $attributes['mobileWrap'] : '';
+
+if ( $ultimate_flexbox_wrap ) {
+	$ultimate_flexbox_classes[] = 'taufb--wrap-' . $ultimate_flexbox_wrap;
+}
+if ( $ultimate_flexbox_tablet_wrap ) {
+	$ultimate_flexbox_classes[] = 'taufb--wrap-tablet-' . $ultimate_flexbox_tablet_wrap;
+}
+if ( $ultimate_flexbox_mobile_wrap ) {
+	$ultimate_flexbox_classes[] = 'taufb--wrap-mobile-' . $ultimate_flexbox_mobile_wrap;
+}
+
 
 $ultimate_flexbox_additional_attributes = array(
 	'class' => join( ' ', $ultimate_flexbox_classes ),
 	'id'    => wp_unique_id( 'taufb-' ),
 );
+
+$ultimate_flexbox_styles = [];
+if(!empty($attributes['width'])) {
+	$ultimate_flexbox_styles['width'] = $attributes['width'];
+}
+if(!empty($attributes['tabletWidth'])) {
+	$ultimate_flexbox_styles['tabletWidth'] = $attributes['tabletWidth'];
+}
+if(!empty($attributes['mobileWidth'])) {
+	$ultimate_flexbox_styles['mobileWidth'] = $attributes['mobileWidth'];
+}
+
 ?>
 <div <?php echo get_block_wrapper_attributes($ultimate_flexbox_additional_attributes); ?>>
 	<?php
@@ -74,3 +101,31 @@ $ultimate_flexbox_additional_attributes = array(
 
 	?>
 </div>
+
+<?php if(count($ultimate_flexbox_styles)) { ?>
+	<style>
+		@media only screen {
+			#<?php echo esc_attr( $ultimate_flexbox_additional_attributes['id'] ); ?> {
+				<?php if(!empty($ultimate_flexbox_styles['width'])) {?>
+					<?php echo sprintf("width: %s", $ultimate_flexbox_styles['width']); ?>
+				<?php } ?>
+			}
+		}
+		@media (480px < width <= 782px) {
+			#<?php echo esc_attr( $ultimate_flexbox_additional_attributes['id'] ); ?> {
+				<?php if(!empty($ultimate_flexbox_styles['tabletWidth'])) {?>
+					<?php echo sprintf("width: %s", $ultimate_flexbox_styles['tabletWidth']); ?>
+				<?php } ?>
+			}
+		}
+
+		@media (width <= 480px) {
+			#<?php echo esc_attr( $ultimate_flexbox_additional_attributes['id'] ); ?> {
+				<?php if(!empty($ultimate_flexbox_styles['mobileWidth'])) {?>
+					<?php echo sprintf("width: %s", $ultimate_flexbox_styles['mobileWidth']); ?>
+				<?php } ?>
+			}
+		}
+	</style>
+
+<?php }?>

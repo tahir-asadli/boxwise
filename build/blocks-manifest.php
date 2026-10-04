@@ -14,7 +14,27 @@ return array(
 			
 		),
 		'supports' => array(
-			'html' => false
+			'html' => false,
+			'color' => array(
+				'background' => true,
+				'text' => true
+			),
+			'typography' => array(
+				'fontSize' => true,
+				'lineHeight' => true,
+				'textAlign' => true
+			),
+			'background' => array(
+				'backgroundImage' => true,
+				'backgroundSize' => true
+			),
+			'shadow' => true,
+			'align' => true,
+			'alignWide' => true,
+			'spacing' => array(
+				'margin' => true,
+				'padding' => true
+			)
 		),
 		'attributes' => array(
 			'justifyContent' => array(
@@ -50,6 +70,30 @@ return array(
 				'default' => ''
 			),
 			'mobileDirection' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'wrap' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'tabletWrap' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'mobileWrap' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'width' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'tabletWidth' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'mobileWidth' => array(
 				'type' => 'string',
 				'default' => ''
 			)

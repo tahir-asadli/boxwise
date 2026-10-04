@@ -72,15 +72,9 @@ export const classNames = (attributes) => {
     direction,
     tabletDirection,
     mobileDirection,
-    widthType,
-    tabletWidthType,
-    mobileWidthType,
-    width,
-    tabletWidth,
-    mobileWidth,
-    widthUnit,
-    tabletWidthUnit,
-    mobileWidthUnit,
+    wrap,
+    tabletWrap,
+    mobileWrap,
     columnGap,
     tabletColumnGap,
     mobileColumnGap,
@@ -93,9 +87,6 @@ export const classNames = (attributes) => {
     rowGapUnit,
     tabletRowGapUnit,
     mobileRowGapUnit,
-    wrap,
-    tabletWrap,
-    mobileWrap,
     reverse,
     tabletReverse,
     mobileReverse,
@@ -156,9 +147,19 @@ export const classNames = (attributes) => {
     );
   }
 
-
-
-
+  if (wrap) {
+    classNames.push(`taufb--wrap-${wrap}`);
+  }
+  if (tabletWrap) {
+    classNames.push(
+      `taufb--wrap-tablet-${tabletWrap}`,
+    );
+  }
+  if (mobileWrap) {
+    classNames.push(
+      `taufb--wrap-mobile-${mobileWrap}`,
+    );
+  }
 
   return classNames
 }

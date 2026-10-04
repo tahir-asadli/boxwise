@@ -74,27 +74,32 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+const getWidth = (deviceType, attributes) => {
+  if (deviceType == "Desktop") {
+    return attributes.width ? attributes.width : undefined;
+  } else if (deviceType == "Tablet") {
+    return attributes.tabletWidth ? attributes.tabletWidth : undefined;
+  } else {
+    return attributes.mobileWidth ? attributes.mobileWidth : undefined;
+  }
+};
 function Edit(props) {
   const {
     setAttributes
   } = props;
   const deviceType = (0,_lib__WEBPACK_IMPORTED_MODULE_4__.useDeviceType)();
-  console.log('deviceType', deviceType);
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
-    className: (0,_lib__WEBPACK_IMPORTED_MODULE_4__.classNames)(props.attributes).join(" ")
+    className: (0,_lib__WEBPACK_IMPORTED_MODULE_4__.classNames)(props.attributes).join(" "),
+    style: {
+      width: getWidth(deviceType, props.attributes)
+    }
   });
   const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useInnerBlocksProps)(blockProps);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
         title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Flexbox settings', 'flex-block'),
-        children: [deviceType == "Desktop" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-          children: "is desktop"
-        }) : deviceType == "Tablet" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-          children: "is tablet"
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-          children: "is mobile"
-        }), deviceType == "Desktop" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(DesktopSettings, {
+        children: deviceType == "Desktop" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(DesktopSettings, {
           setAttributes: setAttributes,
           attributes: props.attributes
         }) : deviceType == "Tablet" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(TabletSettings, {
@@ -103,19 +108,13 @@ function Edit(props) {
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(MobileSettings, {
           setAttributes: setAttributes,
           attributes: props.attributes
-        })]
+        })
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
       group: "viewport",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
         title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Flexbox settings', 'flex-block'),
-        children: [deviceType == "Desktop" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-          children: "is desktop"
-        }) : deviceType == "Tablet" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-          children: "is tablet"
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-          children: "is mobile"
-        }), deviceType == "Desktop" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(DesktopSettings, {
+        children: deviceType == "Desktop" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(DesktopSettings, {
           setAttributes: setAttributes,
           attributes: props.attributes
         }) : deviceType == "Tablet" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(TabletSettings, {
@@ -124,7 +123,7 @@ function Edit(props) {
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(MobileSettings, {
           setAttributes: setAttributes,
           attributes: props.attributes
-        })]
+        })
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       ...innerBlocksProps
@@ -148,6 +147,14 @@ const DesktopSettings = ({
       setAttributes: setAttributes,
       attributes: attributes,
       device: "Desktop"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingWrap, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Desktop"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingWidth, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Desktop"
     })]
   });
 };
@@ -168,6 +175,14 @@ const TabletSettings = ({
       setAttributes: setAttributes,
       attributes: attributes,
       device: "Tablet"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingWrap, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Tablet"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingWidth, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Tablet"
     })]
   });
 };
@@ -185,6 +200,14 @@ const MobileSettings = ({
       attributes: attributes,
       device: "Mobile"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingDirection, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Mobile"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingWrap, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Mobile"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingWidth, {
       setAttributes: setAttributes,
       attributes: attributes,
       device: "Mobile"
@@ -332,12 +355,93 @@ const SettingDirection = ({
     })]
   });
 };
-
-// ArrowRight
-// ArrowDown
-// direction
-// tabletDirection
-// mobileDirection
+const SettingWrap = ({
+  setAttributes,
+  attributes,
+  device
+}) => {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Wrap", "flex-block"),
+    value: device == "Desktop" ? attributes.wrap : device == "Tablet" ? attributes.tabletWrap : attributes.mobileWrap,
+    onChange: value => {
+      if (device == "Desktop") {
+        setAttributes({
+          wrap: value
+        });
+      } else if (device == "Tablet") {
+        setAttributes({
+          tabletWrap: value
+        });
+      } else {
+        setAttributes({
+          mobileWrap: value
+        });
+      }
+    },
+    isBlock: true,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOption, {
+      value: "",
+      icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_lib__WEBPACK_IMPORTED_MODULE_4__.ICONS.Ban, {}),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Not set", "flex-block")
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOption, {
+      value: "wrap",
+      icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_lib__WEBPACK_IMPORTED_MODULE_4__.ICONS.ArrowDown, {}),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Wrap", "flex-block")
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOption, {
+      value: "nowrap",
+      icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_lib__WEBPACK_IMPORTED_MODULE_4__.ICONS.ArrowRight, {}),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("No wrap", "flex-block")
+    })]
+  });
+};
+const SettingWidth = ({
+  setAttributes,
+  attributes,
+  device
+}) => {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalUnitControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Width', "flex-block"),
+      value: device == "Desktop" ? attributes.width : device == "Tablet" ? attributes.tabletWidth : attributes.mobileWidth,
+      onChange: value => {
+        if (device == "Desktop") {
+          setAttributes({
+            width: value
+          });
+        } else if (device == "Tablet") {
+          setAttributes({
+            tabletWidth: value
+          });
+        } else {
+          setAttributes({
+            mobileWidth: value
+          });
+        }
+      },
+      units: [{
+        value: 'px',
+        label: 'px',
+        default: 0
+      }, {
+        value: 'em',
+        label: 'em',
+        default: 0
+      }, {
+        value: 'rem',
+        label: 'rem',
+        default: 0
+      }, {
+        value: '%',
+        label: '%',
+        default: 0
+      }, {
+        value: 'vh',
+        label: 'vh',
+        default: 0
+      }]
+    })
+  });
+};
 
 /***/ },
 
@@ -509,15 +613,9 @@ const classNames = attributes => {
     direction,
     tabletDirection,
     mobileDirection,
-    widthType,
-    tabletWidthType,
-    mobileWidthType,
-    width,
-    tabletWidth,
-    mobileWidth,
-    widthUnit,
-    tabletWidthUnit,
-    mobileWidthUnit,
+    wrap,
+    tabletWrap,
+    mobileWrap,
     columnGap,
     tabletColumnGap,
     mobileColumnGap,
@@ -530,9 +628,6 @@ const classNames = attributes => {
     rowGapUnit,
     tabletRowGapUnit,
     mobileRowGapUnit,
-    wrap,
-    tabletWrap,
-    mobileWrap,
     reverse,
     tabletReverse,
     mobileReverse,
@@ -574,6 +669,15 @@ const classNames = attributes => {
   }
   if (mobileDirection) {
     classNames.push(`taufb--direction-mobile-${mobileDirection}`);
+  }
+  if (wrap) {
+    classNames.push(`taufb--wrap-${wrap}`);
+  }
+  if (tabletWrap) {
+    classNames.push(`taufb--wrap-tablet-${tabletWrap}`);
+  }
+  if (mobileWrap) {
+    classNames.push(`taufb--wrap-mobile-${mobileWrap}`);
   }
   return classNames;
 };
@@ -1805,7 +1909,7 @@ const toPascalCase = (string) => {
   \********************************/
 (module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"taufb/ultimate-flexbox","version":"0.1.0","title":"Ultimate Flexbox","category":"widgets","icon":"smiley","description":"Ultimate Flexbox is Gutenberg block designed to enhance the WordPress block editor.","example":{},"supports":{"html":false},"attributes":{"justifyContent":{"type":"string","default":"flex-start"},"tabletJustifyContent":{"type":"string","default":"flex-start"},"mobileJustifyContent":{"type":"string","default":"flex-start"},"alignItems":{"type":"string","default":"stretch"},"tabletAlignItems":{"type":"string","default":"stretch"},"mobileAlignItems":{"type":"string","default":"stretch"},"direction":{"type":"string","default":""},"tabletDirection":{"type":"string","default":""},"mobileDirection":{"type":"string","default":""}},"textdomain":"fbtt","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"taufb/ultimate-flexbox","version":"0.1.0","title":"Ultimate Flexbox","category":"widgets","icon":"smiley","description":"Ultimate Flexbox is Gutenberg block designed to enhance the WordPress block editor.","example":{},"supports":{"html":false,"color":{"background":true,"text":true},"typography":{"fontSize":true,"lineHeight":true,"textAlign":true},"background":{"backgroundImage":true,"backgroundSize":true},"shadow":true,"align":true,"alignWide":true,"spacing":{"margin":true,"padding":true}},"attributes":{"justifyContent":{"type":"string","default":"flex-start"},"tabletJustifyContent":{"type":"string","default":"flex-start"},"mobileJustifyContent":{"type":"string","default":"flex-start"},"alignItems":{"type":"string","default":"stretch"},"tabletAlignItems":{"type":"string","default":"stretch"},"mobileAlignItems":{"type":"string","default":"stretch"},"direction":{"type":"string","default":""},"tabletDirection":{"type":"string","default":""},"mobileDirection":{"type":"string","default":""},"wrap":{"type":"string","default":""},"tabletWrap":{"type":"string","default":""},"mobileWrap":{"type":"string","default":""},"width":{"type":"string","default":""},"tabletWidth":{"type":"string","default":""},"mobileWidth":{"type":"string","default":""}},"textdomain":"fbtt","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ }
 

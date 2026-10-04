@@ -51,6 +51,14 @@
 	flex-direction: column;
 }
 
+// Desktop Wrap
+.taufb--wrap-wrap {
+	flex-wrap: wrap;
+}
+.taufb--wrap-nowrap {
+	flex-wrap: nowrap;
+}
+
 @media (480px < width <= 782px) {
 	// Tablet Justify Content
 	.taufb--justify-tablet-flex-start {
@@ -91,6 +99,13 @@
 	.taufb--direction-tablet-column {
 		flex-direction: column;
 	}
+	// Tablet Wrap
+	.taufb--wrap-tablet-wrap {
+		flex-wrap: wrap;
+	}
+	.taufb--wrap-tablet-nowrap {
+		flex-wrap: nowrap;
+	}
 }
 
 @media (width <= 480px) {
@@ -126,11 +141,20 @@
 	.taufb--align-mobile-stretch {
 		align-items: stretch;
 	}
+
 	// Mobile Direction
 	.taufb--direction-mobile-row {
 		flex-direction: row;
 	}
 	.taufb--direction-mobile-column {
 		flex-direction: column;
+	}
+
+	// Mobile Wrap
+	.taufb--wrap-mobile-wrap {
+		flex-wrap: wrap;
+	}
+	.taufb--wrap-mobile-nowrap {
+		flex-wrap: nowrap;
 	}
 }

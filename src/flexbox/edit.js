@@ -27,6 +27,7 @@ import {
 	PanelBody, Button, __experimentalToggleGroupControl as ToggleGroupControl,
 	__experimentalToggleGroupControlOption as ToggleGroupControlOption,
 	__experimentalToggleGroupControlOptionIcon as ToggleGroupControlOptionIcon,
+	__experimentalUnitControl as UnitControl
 } from '@wordpress/components';
 
 /**
@@ -54,26 +55,37 @@ import {
 import { formatLowercase, formatUppercase, alignCenter } from '@wordpress/icons';
 import { classNames, ICONS, useDeviceType } from '../lib';
 
+const getWidth = (deviceType, attributes) => {
+	if (deviceType == "Desktop") {
+		return attributes.width ? attributes.width : undefined
+	} else if (deviceType == "Tablet") {
+		return attributes.tabletWidth ? attributes.tabletWidth : undefined
+	} else {
+		return attributes.mobileWidth ? attributes.mobileWidth : undefined
+	}
+}
+
 export default function Edit(props) {
 
 	const { setAttributes } = props;
 	const deviceType = useDeviceType();
-	console.log('deviceType', deviceType);
+
 
 	const blockProps = useBlockProps({
 		className: classNames(props.attributes).join(" "),
+		style: {
+			width: getWidth(deviceType, props.attributes)
+		}
 	});
 	const innerBlocksProps = useInnerBlocksProps(blockProps);
 	return <>
 		<InspectorControls>
 			<PanelBody title={__('Flexbox settings', 'flex-block')}>
-				{deviceType == "Desktop" ? <div>is desktop</div> : deviceType == "Tablet" ? <div>is tablet</div> : <div>is mobile</div>}
 				{deviceType == "Desktop" ? <DesktopSettings setAttributes={setAttributes} attributes={props.attributes} /> : deviceType == "Tablet" ? <TabletSettings setAttributes={setAttributes} attributes={props.attributes} /> : <MobileSettings setAttributes={setAttributes} attributes={props.attributes} />}
 			</PanelBody>
 		</InspectorControls>
 		<InspectorControls group="viewport">
 			<PanelBody title={__('Flexbox settings', 'flex-block')}>
-				{deviceType == "Desktop" ? <div>is desktop</div> : deviceType == "Tablet" ? <div>is tablet</div> : <div>is mobile</div>}
 				{deviceType == "Desktop" ? <DesktopSettings setAttributes={setAttributes} attributes={props.attributes} /> : deviceType == "Tablet" ? <TabletSettings setAttributes={setAttributes} attributes={props.attributes} /> : <MobileSettings setAttributes={setAttributes} attributes={props.attributes} />}
 			</PanelBody>
 		</InspectorControls>
@@ -87,6 +99,9 @@ const DesktopSettings = ({ setAttributes, attributes }) => {
 		<SettingJustifyContent setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
 		<SettingAlignItems setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
 		<SettingDirection setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
+		<SettingWrap setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
+		<SettingWidth setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
+
 	</>
 }
 const TabletSettings = ({ setAttributes, attributes }) => {
@@ -94,6 +109,8 @@ const TabletSettings = ({ setAttributes, attributes }) => {
 		<SettingJustifyContent setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
 		<SettingAlignItems setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
 		<SettingDirection setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
+		<SettingWrap setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
+		<SettingWidth setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
 	</>
 }
 const MobileSettings = ({ setAttributes, attributes }) => {
@@ -101,6 +118,8 @@ const MobileSettings = ({ setAttributes, attributes }) => {
 		<SettingJustifyContent setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
 		<SettingAlignItems setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
 		<SettingDirection setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
+		<SettingWrap setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
+		<SettingWidth setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
 	</>
 }
 
@@ -227,8 +246,58 @@ const SettingDirection = ({ setAttributes, attributes, device }) => {
 	</ToggleGroupControl>
 }
 
-// ArrowRight
-// ArrowDown
-// direction
-// tabletDirection
-// mobileDirection
+
+const SettingWrap = ({ setAttributes, attributes, device }) => {
+	return <ToggleGroupControl label={__("Wrap", "flex-block")}
+		value={device == "Desktop" ? attributes.wrap : device == "Tablet" ? attributes.tabletWrap : attributes.mobileWrap}
+		onChange={(value) => {
+			if (device == "Desktop") {
+				setAttributes({ wrap: value })
+			} else if (device == "Tablet") {
+				setAttributes({ tabletWrap: value })
+			} else {
+				setAttributes({ mobileWrap: value })
+			}
+		}}
+		isBlock>
+		<ToggleGroupControlOption
+			value=""
+			icon={<ICONS.Ban />}
+			label={__("Not set", "flex-block")}
+		/>
+		<ToggleGroupControlOption
+			value="wrap"
+			icon={<ICONS.ArrowDown />}
+			label={__("Wrap", "flex-block")}
+		/>
+		<ToggleGroupControlOption
+			value="nowrap"
+			icon={<ICONS.ArrowRight />}
+			label={__("No wrap", "flex-block")}
+		/>
+	</ToggleGroupControl>
+}
+
+const SettingWidth = ({ setAttributes, attributes, device }) => {
+	return <>
+		<UnitControl
+			label={__('Width', "flex-block")}
+			value={device == "Desktop" ? attributes.width : device == "Tablet" ? attributes.tabletWidth : attributes.mobileWidth}
+			onChange={(value) => {
+				if (device == "Desktop") {
+					setAttributes({ width: value })
+				} else if (device == "Tablet") {
+					setAttributes({ tabletWidth: value })
+				} else {
+					setAttributes({ mobileWidth: value })
+				}
+			}}
+			units={[
+				{ value: 'px', label: 'px', default: 0 },
+				{ value: 'em', label: 'em', default: 0 },
+				{ value: 'rem', label: 'rem', default: 0 },
+				{ value: '%', label: '%', default: 0 },
+				{ value: 'vh', label: 'vh', default: 0 },
+			]}
+		/></>
+}
