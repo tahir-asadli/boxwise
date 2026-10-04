@@ -29,11 +29,15 @@ import {
   AlignVerticalJustifyCenter,
   AlignVerticalDistributeCenter,
   AlignVerticalSpaceBetween,
+  StretchVertical,
   AlignStartVertical,
   AlignEndVertical,
   AlignHorizontalJustifyCenter,
   AlignHorizontalSpaceBetween,
   AlignHorizontalSpaceAround,
+  StretchHorizontal,
+  ArrowRight,
+  ArrowDown,
   Ban,
 } from "lucide-react";
 
@@ -44,12 +48,16 @@ export const ICONS = {
   VJustifyCenter: AlignVerticalJustifyCenter,
   VDistributeCenter: AlignVerticalDistributeCenter,
   VSpaceBetween: AlignVerticalSpaceBetween,
+  VStrech: StretchVertical,
   HStart: AlignStartVertical,
   HEnd: AlignEndVertical,
   HJustifyCenter: AlignHorizontalJustifyCenter,
   HSpaceBetween: AlignHorizontalSpaceBetween,
   HSpaceAround: AlignHorizontalSpaceAround,
+  HStrech: StretchHorizontal,
   Ban: Ban,
+  ArrowRight: ArrowRight,
+  ArrowDown: ArrowDown,
 }
 
 export const classNames = (attributes) => {
@@ -58,6 +66,12 @@ export const classNames = (attributes) => {
     justifyContent,
     tabletJustifyContent,
     mobileJustifyContent,
+    alignItems,
+    tabletAlignItems,
+    mobileAlignItems,
+    direction,
+    tabletDirection,
+    mobileDirection,
     widthType,
     tabletWidthType,
     mobileWidthType,
@@ -82,15 +96,9 @@ export const classNames = (attributes) => {
     wrap,
     tabletWrap,
     mobileWrap,
-    direction,
-    tabletDirection,
-    mobileDirection,
     reverse,
     tabletReverse,
     mobileReverse,
-    alignItems,
-    tabletAlignItems,
-    mobileAlignItems,
     grow,
     tabletGrow,
     mobileGrow,
@@ -119,6 +127,38 @@ export const classNames = (attributes) => {
       `taufb--justify-mobile-${mobileJustifyContent}`,
     );
   }
+
+  if (alignItems) {
+    classNames.push(`taufb--align-${alignItems}`);
+  }
+  if (tabletAlignItems) {
+    classNames.push(
+      `taufb--justify-tablet-${tabletAlignItems}`,
+    );
+  }
+  if (mobileAlignItems) {
+    classNames.push(
+      `taufb--align-mobile-${mobileAlignItems}`,
+    );
+  }
+
+  if (direction) {
+    classNames.push(`taufb--direction-${direction}`);
+  }
+  if (tabletDirection) {
+    classNames.push(
+      `taufb--direction-tablet-${tabletDirection}`,
+    );
+  }
+  if (mobileDirection) {
+    classNames.push(
+      `taufb--direction-mobile-${mobileDirection}`,
+    );
+  }
+
+
+
+
 
   return classNames
 }

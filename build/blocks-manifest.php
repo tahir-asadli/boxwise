@@ -28,6 +28,30 @@ return array(
 			'mobileJustifyContent' => array(
 				'type' => 'string',
 				'default' => 'flex-start'
+			),
+			'alignItems' => array(
+				'type' => 'string',
+				'default' => 'stretch'
+			),
+			'tabletAlignItems' => array(
+				'type' => 'string',
+				'default' => 'stretch'
+			),
+			'mobileAlignItems' => array(
+				'type' => 'string',
+				'default' => 'stretch'
+			),
+			'direction' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'tabletDirection' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'mobileDirection' => array(
+				'type' => 'string',
+				'default' => ''
 			)
 		),
 		'textdomain' => 'fbtt',

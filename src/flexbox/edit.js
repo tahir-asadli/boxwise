@@ -56,57 +56,10 @@ import { classNames, ICONS, useDeviceType } from '../lib';
 
 export default function Edit(props) {
 
-	const {
-		attributes: {
-			justifyContent,
-			tabletJustifyContent,
-			mobileJustifyContent,
-			widthType,
-			tabletWidthType,
-			mobileWidthType,
-			width,
-			tabletWidth,
-			mobileWidth,
-			widthUnit,
-			tabletWidthUnit,
-			mobileWidthUnit,
-			columnGap,
-			tabletColumnGap,
-			mobileColumnGap,
-			columnGapUnit,
-			tabletColumnGapUnit,
-			mobileColumnGapUnit,
-			rowGap,
-			tabletRowGap,
-			mobileRowGap,
-			rowGapUnit,
-			tabletRowGapUnit,
-			mobileRowGapUnit,
-			wrap,
-			tabletWrap,
-			mobileWrap,
-			direction,
-			tabletDirection,
-			mobileDirection,
-			reverse,
-			tabletReverse,
-			mobileReverse,
-			alignItems,
-			tabletAlignItems,
-			mobileAlignItems,
-			grow,
-			tabletGrow,
-			mobileGrow,
-			shrink,
-			tabletShrink,
-			mobileShrink,
-			display,
-			tabletDisplay,
-			mobileDisplay,
-		},
-		setAttributes,
-	} = props;
+	const { setAttributes } = props;
 	const deviceType = useDeviceType();
+	console.log('deviceType', deviceType);
+
 	const blockProps = useBlockProps({
 		className: classNames(props.attributes).join(" "),
 	});
@@ -114,9 +67,16 @@ export default function Edit(props) {
 	return <>
 		<InspectorControls>
 			<PanelBody title={__('Flexbox settings', 'flex-block')}>
+				{deviceType == "Desktop" ? <div>is desktop</div> : deviceType == "Tablet" ? <div>is tablet</div> : <div>is mobile</div>}
 				{deviceType == "Desktop" ? <DesktopSettings setAttributes={setAttributes} attributes={props.attributes} /> : deviceType == "Tablet" ? <TabletSettings setAttributes={setAttributes} attributes={props.attributes} /> : <MobileSettings setAttributes={setAttributes} attributes={props.attributes} />}
 			</PanelBody>
-		</InspectorControls >
+		</InspectorControls>
+		<InspectorControls group="viewport">
+			<PanelBody title={__('Flexbox settings', 'flex-block')}>
+				{deviceType == "Desktop" ? <div>is desktop</div> : deviceType == "Tablet" ? <div>is tablet</div> : <div>is mobile</div>}
+				{deviceType == "Desktop" ? <DesktopSettings setAttributes={setAttributes} attributes={props.attributes} /> : deviceType == "Tablet" ? <TabletSettings setAttributes={setAttributes} attributes={props.attributes} /> : <MobileSettings setAttributes={setAttributes} attributes={props.attributes} />}
+			</PanelBody>
+		</InspectorControls>
 		<div {...innerBlocksProps}></div>
 	</>
 }
@@ -125,16 +85,22 @@ export default function Edit(props) {
 const DesktopSettings = ({ setAttributes, attributes }) => {
 	return <>
 		<SettingJustifyContent setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
+		<SettingAlignItems setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
+		<SettingDirection setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
 	</>
 }
 const TabletSettings = ({ setAttributes, attributes }) => {
 	return <>
 		<SettingJustifyContent setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
+		<SettingAlignItems setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
+		<SettingDirection setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
 	</>
 }
 const MobileSettings = ({ setAttributes, attributes }) => {
 	return <>
 		<SettingJustifyContent setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
+		<SettingAlignItems setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
+		<SettingDirection setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
 	</>
 }
 
@@ -152,6 +118,11 @@ const SettingJustifyContent = ({ setAttributes, attributes, device }) => {
 		}}
 		isBlock>
 		<ToggleGroupControlOptionIcon
+			value=""
+			icon={<ICONS.Ban />}
+			label={__("Not set", "flex-block")}
+		/>
+		<ToggleGroupControlOptionIcon
 			value="flex-start"
 			icon={<ICONS.HStart />}
 			label={__("Flex start", "flex-block")}
@@ -162,19 +133,102 @@ const SettingJustifyContent = ({ setAttributes, attributes, device }) => {
 			label={__("Flex end", "flex-block")}
 		/>
 		<ToggleGroupControlOptionIcon
-			value="flex-center"
+			value="center"
 			icon={<ICONS.HJustifyCenter />}
 			label={__("Justify center", "flex-block")}
 		/>
 		<ToggleGroupControlOptionIcon
-			value="flex-between"
+			value="space-between"
 			icon={<ICONS.HSpaceBetween />}
 			label={__("Space between", "flex-block")}
 		/>
 		<ToggleGroupControlOptionIcon
-			value="flex-around"
+			value="space-around"
 			icon={<ICONS.HSpaceAround />}
 			label={__("Space around", "flex-block")}
 		/>
 	</ToggleGroupControl>
 }
+
+const SettingAlignItems = ({ setAttributes, attributes, device }) => {
+	return <ToggleGroupControl label={__("Align Items", "flex-block")}
+		value={device == "Desktop" ? attributes.alignItems : device == "Tablet" ? attributes.tabletAlignItems : attributes.mobileAlignItems}
+		onChange={(value) => {
+			if (device == "Desktop") {
+				setAttributes({ alignItems: value })
+			} else if (device == "Tablet") {
+				setAttributes({ tabletAlignItems: value })
+			} else {
+				setAttributes({ mobileAlignItems: value })
+			}
+		}}
+		isBlock>
+		<ToggleGroupControlOptionIcon
+			value=""
+			icon={<ICONS.Ban />}
+			label={__("Not set", "flex-block")}
+		/>
+		<ToggleGroupControlOptionIcon
+			value="flex-start"
+			icon={<ICONS.VJustifyStart />}
+			label={__("Flex start", "flex-block")}
+		/>
+		<ToggleGroupControlOptionIcon
+			value="flex-end"
+			icon={<ICONS.VJustifyEnd />}
+			label={__("Flex end", "flex-block")}
+		/>
+		<ToggleGroupControlOptionIcon
+			value="center"
+			icon={<ICONS.VJustifyCenter />}
+			label={__("Center", "flex-block")}
+		/>
+		<ToggleGroupControlOptionIcon
+			value="baseline"
+			icon={<ICONS.VDistributeCenter />}
+			label={__("Baseline", "flex-block")}
+		/>
+		<ToggleGroupControlOptionIcon
+			value="stretch"
+			icon={<ICONS.HStrech />}
+			label={__("Stretch", "flex-block")}
+		/>
+	</ToggleGroupControl>
+}
+
+const SettingDirection = ({ setAttributes, attributes, device }) => {
+	return <ToggleGroupControl label={__("Direction", "flex-block")}
+		value={device == "Desktop" ? attributes.direction : device == "Tablet" ? attributes.tabletDirection : attributes.mobileDirection}
+		onChange={(value) => {
+			if (device == "Desktop") {
+				setAttributes({ direction: value })
+			} else if (device == "Tablet") {
+				setAttributes({ tabletDirection: value })
+			} else {
+				setAttributes({ mobileDirection: value })
+			}
+		}}
+		isBlock>
+		<ToggleGroupControlOptionIcon
+			value=""
+			icon={<ICONS.Ban />}
+			label={__("Not set", "flex-block")}
+		/>
+		<ToggleGroupControlOptionIcon
+			value="column"
+			icon={<ICONS.ArrowDown />}
+			label={__("Column", "flex-block")}
+		/>
+		<ToggleGroupControlOptionIcon
+			value="row"
+			icon={<ICONS.ArrowRight />}
+			label={__("Row", "flex-block")}
+		/>
+	</ToggleGroupControl>
+}
+
+// ArrowRight
+// ArrowDown
+// direction
+// tabletDirection
+// mobileDirection

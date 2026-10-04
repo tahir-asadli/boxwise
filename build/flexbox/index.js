@@ -76,65 +76,25 @@ __webpack_require__.r(__webpack_exports__);
 
 function Edit(props) {
   const {
-    attributes: {
-      justifyContent,
-      tabletJustifyContent,
-      mobileJustifyContent,
-      widthType,
-      tabletWidthType,
-      mobileWidthType,
-      width,
-      tabletWidth,
-      mobileWidth,
-      widthUnit,
-      tabletWidthUnit,
-      mobileWidthUnit,
-      columnGap,
-      tabletColumnGap,
-      mobileColumnGap,
-      columnGapUnit,
-      tabletColumnGapUnit,
-      mobileColumnGapUnit,
-      rowGap,
-      tabletRowGap,
-      mobileRowGap,
-      rowGapUnit,
-      tabletRowGapUnit,
-      mobileRowGapUnit,
-      wrap,
-      tabletWrap,
-      mobileWrap,
-      direction,
-      tabletDirection,
-      mobileDirection,
-      reverse,
-      tabletReverse,
-      mobileReverse,
-      alignItems,
-      tabletAlignItems,
-      mobileAlignItems,
-      grow,
-      tabletGrow,
-      mobileGrow,
-      shrink,
-      tabletShrink,
-      mobileShrink,
-      display,
-      tabletDisplay,
-      mobileDisplay
-    },
     setAttributes
   } = props;
   const deviceType = (0,_lib__WEBPACK_IMPORTED_MODULE_4__.useDeviceType)();
+  console.log('deviceType', deviceType);
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
     className: (0,_lib__WEBPACK_IMPORTED_MODULE_4__.classNames)(props.attributes).join(" ")
   });
   const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useInnerBlocksProps)(blockProps);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
         title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Flexbox settings', 'flex-block'),
-        children: deviceType == "Desktop" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(DesktopSettings, {
+        children: [deviceType == "Desktop" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          children: "is desktop"
+        }) : deviceType == "Tablet" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          children: "is tablet"
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          children: "is mobile"
+        }), deviceType == "Desktop" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(DesktopSettings, {
           setAttributes: setAttributes,
           attributes: props.attributes
         }) : deviceType == "Tablet" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(TabletSettings, {
@@ -143,7 +103,28 @@ function Edit(props) {
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(MobileSettings, {
           setAttributes: setAttributes,
           attributes: props.attributes
-        })
+        })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
+      group: "viewport",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Flexbox settings', 'flex-block'),
+        children: [deviceType == "Desktop" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          children: "is desktop"
+        }) : deviceType == "Tablet" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          children: "is tablet"
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          children: "is mobile"
+        }), deviceType == "Desktop" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(DesktopSettings, {
+          setAttributes: setAttributes,
+          attributes: props.attributes
+        }) : deviceType == "Tablet" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(TabletSettings, {
+          setAttributes: setAttributes,
+          attributes: props.attributes
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(MobileSettings, {
+          setAttributes: setAttributes,
+          attributes: props.attributes
+        })]
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       ...innerBlocksProps
@@ -154,36 +135,60 @@ const DesktopSettings = ({
   setAttributes,
   attributes
 }) => {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingJustifyContent, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingJustifyContent, {
       setAttributes: setAttributes,
       attributes: attributes,
       device: "Desktop"
-    })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingAlignItems, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Desktop"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingDirection, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Desktop"
+    })]
   });
 };
 const TabletSettings = ({
   setAttributes,
   attributes
 }) => {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingJustifyContent, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingJustifyContent, {
       setAttributes: setAttributes,
       attributes: attributes,
       device: "Tablet"
-    })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingAlignItems, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Tablet"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingDirection, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Tablet"
+    })]
   });
 };
 const MobileSettings = ({
   setAttributes,
   attributes
 }) => {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingJustifyContent, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingJustifyContent, {
       setAttributes: setAttributes,
       attributes: attributes,
       device: "Mobile"
-    })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingAlignItems, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Mobile"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingDirection, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Mobile"
+    })]
   });
 };
 const SettingJustifyContent = ({
@@ -211,6 +216,10 @@ const SettingJustifyContent = ({
     },
     isBlock: true,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOptionIcon, {
+      value: "",
+      icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_lib__WEBPACK_IMPORTED_MODULE_4__.ICONS.Ban, {}),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Not set", "flex-block")
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOptionIcon, {
       value: "flex-start",
       icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_lib__WEBPACK_IMPORTED_MODULE_4__.ICONS.HStart, {}),
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Flex start", "flex-block")
@@ -219,20 +228,116 @@ const SettingJustifyContent = ({
       icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_lib__WEBPACK_IMPORTED_MODULE_4__.ICONS.HEnd, {}),
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Flex end", "flex-block")
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOptionIcon, {
-      value: "flex-center",
+      value: "center",
       icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_lib__WEBPACK_IMPORTED_MODULE_4__.ICONS.HJustifyCenter, {}),
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Justify center", "flex-block")
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOptionIcon, {
-      value: "flex-between",
+      value: "space-between",
       icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_lib__WEBPACK_IMPORTED_MODULE_4__.ICONS.HSpaceBetween, {}),
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Space between", "flex-block")
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOptionIcon, {
-      value: "flex-around",
+      value: "space-around",
       icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_lib__WEBPACK_IMPORTED_MODULE_4__.ICONS.HSpaceAround, {}),
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Space around", "flex-block")
     })]
   });
 };
+const SettingAlignItems = ({
+  setAttributes,
+  attributes,
+  device
+}) => {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Align Items", "flex-block"),
+    value: device == "Desktop" ? attributes.alignItems : device == "Tablet" ? attributes.tabletAlignItems : attributes.mobileAlignItems,
+    onChange: value => {
+      if (device == "Desktop") {
+        setAttributes({
+          alignItems: value
+        });
+      } else if (device == "Tablet") {
+        setAttributes({
+          tabletAlignItems: value
+        });
+      } else {
+        setAttributes({
+          mobileAlignItems: value
+        });
+      }
+    },
+    isBlock: true,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOptionIcon, {
+      value: "",
+      icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_lib__WEBPACK_IMPORTED_MODULE_4__.ICONS.Ban, {}),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Not set", "flex-block")
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOptionIcon, {
+      value: "flex-start",
+      icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_lib__WEBPACK_IMPORTED_MODULE_4__.ICONS.VJustifyStart, {}),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Flex start", "flex-block")
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOptionIcon, {
+      value: "flex-end",
+      icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_lib__WEBPACK_IMPORTED_MODULE_4__.ICONS.VJustifyEnd, {}),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Flex end", "flex-block")
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOptionIcon, {
+      value: "center",
+      icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_lib__WEBPACK_IMPORTED_MODULE_4__.ICONS.VJustifyCenter, {}),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Center", "flex-block")
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOptionIcon, {
+      value: "baseline",
+      icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_lib__WEBPACK_IMPORTED_MODULE_4__.ICONS.VDistributeCenter, {}),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Baseline", "flex-block")
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOptionIcon, {
+      value: "stretch",
+      icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_lib__WEBPACK_IMPORTED_MODULE_4__.ICONS.HStrech, {}),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Stretch", "flex-block")
+    })]
+  });
+};
+const SettingDirection = ({
+  setAttributes,
+  attributes,
+  device
+}) => {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Direction", "flex-block"),
+    value: device == "Desktop" ? attributes.direction : device == "Tablet" ? attributes.tabletDirection : attributes.mobileDirection,
+    onChange: value => {
+      if (device == "Desktop") {
+        setAttributes({
+          direction: value
+        });
+      } else if (device == "Tablet") {
+        setAttributes({
+          tabletDirection: value
+        });
+      } else {
+        setAttributes({
+          mobileDirection: value
+        });
+      }
+    },
+    isBlock: true,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOptionIcon, {
+      value: "",
+      icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_lib__WEBPACK_IMPORTED_MODULE_4__.ICONS.Ban, {}),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Not set", "flex-block")
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOptionIcon, {
+      value: "column",
+      icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_lib__WEBPACK_IMPORTED_MODULE_4__.ICONS.ArrowDown, {}),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Column", "flex-block")
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOptionIcon, {
+      value: "row",
+      icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_lib__WEBPACK_IMPORTED_MODULE_4__.ICONS.ArrowRight, {}),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Row", "flex-block")
+    })]
+  });
+};
+
+// ArrowRight
+// ArrowDown
+// direction
+// tabletDirection
+// mobileDirection
 
 /***/ },
 
@@ -347,7 +452,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/align-vertical-justify-end.mjs");
 /* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/align-vertical-justify-start.mjs");
 /* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/align-vertical-space-between.mjs");
-/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/ban.mjs");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/arrow-down.mjs");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/arrow-right.mjs");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/ban.mjs");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/stretch-horizontal.mjs");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/stretch-vertical.mjs");
 
 function useDeviceType() {
   return (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.useSelect)(select => {
@@ -378,18 +487,28 @@ const ICONS = {
   VJustifyCenter: lucide_react__WEBPACK_IMPORTED_MODULE_7__["default"],
   VDistributeCenter: lucide_react__WEBPACK_IMPORTED_MODULE_6__["default"],
   VSpaceBetween: lucide_react__WEBPACK_IMPORTED_MODULE_10__["default"],
+  VStrech: lucide_react__WEBPACK_IMPORTED_MODULE_15__["default"],
   HStart: lucide_react__WEBPACK_IMPORTED_MODULE_5__["default"],
   HEnd: lucide_react__WEBPACK_IMPORTED_MODULE_1__["default"],
   HJustifyCenter: lucide_react__WEBPACK_IMPORTED_MODULE_2__["default"],
   HSpaceBetween: lucide_react__WEBPACK_IMPORTED_MODULE_3__["default"],
   HSpaceAround: lucide_react__WEBPACK_IMPORTED_MODULE_4__["default"],
-  Ban: lucide_react__WEBPACK_IMPORTED_MODULE_11__["default"]
+  HStrech: lucide_react__WEBPACK_IMPORTED_MODULE_14__["default"],
+  Ban: lucide_react__WEBPACK_IMPORTED_MODULE_13__["default"],
+  ArrowRight: lucide_react__WEBPACK_IMPORTED_MODULE_12__["default"],
+  ArrowDown: lucide_react__WEBPACK_IMPORTED_MODULE_11__["default"]
 };
 const classNames = attributes => {
   const {
     justifyContent,
     tabletJustifyContent,
     mobileJustifyContent,
+    alignItems,
+    tabletAlignItems,
+    mobileAlignItems,
+    direction,
+    tabletDirection,
+    mobileDirection,
     widthType,
     tabletWidthType,
     mobileWidthType,
@@ -414,15 +533,9 @@ const classNames = attributes => {
     wrap,
     tabletWrap,
     mobileWrap,
-    direction,
-    tabletDirection,
-    mobileDirection,
     reverse,
     tabletReverse,
     mobileReverse,
-    alignItems,
-    tabletAlignItems,
-    mobileAlignItems,
     grow,
     tabletGrow,
     mobileGrow,
@@ -443,6 +556,24 @@ const classNames = attributes => {
   }
   if (mobileJustifyContent) {
     classNames.push(`taufb--justify-mobile-${mobileJustifyContent}`);
+  }
+  if (alignItems) {
+    classNames.push(`taufb--align-${alignItems}`);
+  }
+  if (tabletAlignItems) {
+    classNames.push(`taufb--justify-tablet-${tabletAlignItems}`);
+  }
+  if (mobileAlignItems) {
+    classNames.push(`taufb--align-mobile-${mobileAlignItems}`);
+  }
+  if (direction) {
+    classNames.push(`taufb--direction-${direction}`);
+  }
+  if (tabletDirection) {
+    classNames.push(`taufb--direction-tablet-${tabletDirection}`);
+  }
+  if (mobileDirection) {
+    classNames.push(`taufb--direction-mobile-${mobileDirection}`);
   }
   return classNames;
 };
@@ -1129,6 +1260,82 @@ const AlignVerticalSpaceBetween = (0,_createLucideIcon_mjs__WEBPACK_IMPORTED_MOD
 
 /***/ },
 
+/***/ "./node_modules/lucide-react/dist/esm/icons/arrow-down.mjs"
+/*!*****************************************************************!*\
+  !*** ./node_modules/lucide-react/dist/esm/icons/arrow-down.mjs ***!
+  \*****************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   __iconData: () => (/* binding */ __iconData),
+/* harmony export */   "default": () => (/* binding */ ArrowDown)
+/* harmony export */ });
+/* harmony import */ var _createLucideIcon_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../createLucideIcon.mjs */ "./node_modules/lucide-react/dist/esm/createLucideIcon.mjs");
+/**
+ * @license lucide-react v1.48.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+
+
+const __iconData = {
+  name: "arrow-down",
+  size: 24,
+  node: [
+    ["path", { d: "M12 5v14", key: "s699le" }],
+    ["path", { d: "m19 12-7 7-7-7", key: "1idqje" }]
+  ]
+};
+__iconData.node;
+const ArrowDown = (0,_createLucideIcon_mjs__WEBPACK_IMPORTED_MODULE_0__["default"])(__iconData);
+
+
+//# sourceMappingURL=arrow-down.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/lucide-react/dist/esm/icons/arrow-right.mjs"
+/*!******************************************************************!*\
+  !*** ./node_modules/lucide-react/dist/esm/icons/arrow-right.mjs ***!
+  \******************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   __iconData: () => (/* binding */ __iconData),
+/* harmony export */   "default": () => (/* binding */ ArrowRight)
+/* harmony export */ });
+/* harmony import */ var _createLucideIcon_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../createLucideIcon.mjs */ "./node_modules/lucide-react/dist/esm/createLucideIcon.mjs");
+/**
+ * @license lucide-react v1.48.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+
+
+const __iconData = {
+  name: "arrow-right",
+  size: 24,
+  node: [
+    ["path", { d: "M5 12h14", key: "1ays0h" }],
+    ["path", { d: "m12 5 7 7-7 7", key: "xquz4c" }]
+  ]
+};
+__iconData.node;
+const ArrowRight = (0,_createLucideIcon_mjs__WEBPACK_IMPORTED_MODULE_0__["default"])(__iconData);
+
+
+//# sourceMappingURL=arrow-right.mjs.map
+
+
+/***/ },
+
 /***/ "./node_modules/lucide-react/dist/esm/icons/ban.mjs"
 /*!**********************************************************!*\
   !*** ./node_modules/lucide-react/dist/esm/icons/ban.mjs ***!
@@ -1163,6 +1370,82 @@ const Ban = (0,_createLucideIcon_mjs__WEBPACK_IMPORTED_MODULE_0__["default"])(__
 
 
 //# sourceMappingURL=ban.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/lucide-react/dist/esm/icons/stretch-horizontal.mjs"
+/*!*************************************************************************!*\
+  !*** ./node_modules/lucide-react/dist/esm/icons/stretch-horizontal.mjs ***!
+  \*************************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   __iconData: () => (/* binding */ __iconData),
+/* harmony export */   "default": () => (/* binding */ StretchHorizontal)
+/* harmony export */ });
+/* harmony import */ var _createLucideIcon_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../createLucideIcon.mjs */ "./node_modules/lucide-react/dist/esm/createLucideIcon.mjs");
+/**
+ * @license lucide-react v1.48.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+
+
+const __iconData = {
+  name: "stretch-horizontal",
+  size: 24,
+  node: [
+    ["rect", { width: "20", height: "6", x: "2", y: "4", rx: "2", key: "qdearl" }],
+    ["rect", { width: "20", height: "6", x: "2", y: "14", rx: "2", key: "1xrn6j" }]
+  ]
+};
+__iconData.node;
+const StretchHorizontal = (0,_createLucideIcon_mjs__WEBPACK_IMPORTED_MODULE_0__["default"])(__iconData);
+
+
+//# sourceMappingURL=stretch-horizontal.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/lucide-react/dist/esm/icons/stretch-vertical.mjs"
+/*!***********************************************************************!*\
+  !*** ./node_modules/lucide-react/dist/esm/icons/stretch-vertical.mjs ***!
+  \***********************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   __iconData: () => (/* binding */ __iconData),
+/* harmony export */   "default": () => (/* binding */ StretchVertical)
+/* harmony export */ });
+/* harmony import */ var _createLucideIcon_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../createLucideIcon.mjs */ "./node_modules/lucide-react/dist/esm/createLucideIcon.mjs");
+/**
+ * @license lucide-react v1.48.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+
+
+const __iconData = {
+  name: "stretch-vertical",
+  size: 24,
+  node: [
+    ["rect", { width: "6", height: "20", x: "4", y: "2", rx: "2", key: "19qu7m" }],
+    ["rect", { width: "6", height: "20", x: "14", y: "2", rx: "2", key: "24v0nk" }]
+  ]
+};
+__iconData.node;
+const StretchVertical = (0,_createLucideIcon_mjs__WEBPACK_IMPORTED_MODULE_0__["default"])(__iconData);
+
+
+//# sourceMappingURL=stretch-vertical.mjs.map
 
 
 /***/ },
@@ -1522,7 +1805,7 @@ const toPascalCase = (string) => {
   \********************************/
 (module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"taufb/ultimate-flexbox","version":"0.1.0","title":"Ultimate Flexbox","category":"widgets","icon":"smiley","description":"Ultimate Flexbox is Gutenberg block designed to enhance the WordPress block editor.","example":{},"supports":{"html":false},"attributes":{"justifyContent":{"type":"string","default":"flex-start"},"tabletJustifyContent":{"type":"string","default":"flex-start"},"mobileJustifyContent":{"type":"string","default":"flex-start"}},"textdomain":"fbtt","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"taufb/ultimate-flexbox","version":"0.1.0","title":"Ultimate Flexbox","category":"widgets","icon":"smiley","description":"Ultimate Flexbox is Gutenberg block designed to enhance the WordPress block editor.","example":{},"supports":{"html":false},"attributes":{"justifyContent":{"type":"string","default":"flex-start"},"tabletJustifyContent":{"type":"string","default":"flex-start"},"mobileJustifyContent":{"type":"string","default":"flex-start"},"alignItems":{"type":"string","default":"stretch"},"tabletAlignItems":{"type":"string","default":"stretch"},"mobileAlignItems":{"type":"string","default":"stretch"},"direction":{"type":"string","default":""},"tabletDirection":{"type":"string","default":""},"mobileDirection":{"type":"string","default":""}},"textdomain":"fbtt","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ }
 

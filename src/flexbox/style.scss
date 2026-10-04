@@ -8,6 +8,7 @@
 .taufb {
 	display: flex;
 }
+
 // Desktop Justify Content
 .taufb--justify-flex-start {
 	justify-content: flex-start;
@@ -25,8 +26,33 @@
 	justify-content: space-around;
 }
 
-// Tablet Justify Content
+// Desktop Align Items
+.taufb--align-flex-start {
+	align-items: flex-start;
+}
+.taufb--align-flex-end {
+	align-items: flex-end;
+}
+.taufb--align-center {
+	align-items: center;
+}
+.taufb--align-baseline {
+	align-items: baseline;
+}
+.taufb--align-stretch {
+	align-items: stretch;
+}
+
+// Desktop Direction
+.taufb--direction-row {
+	flex-direction: row;
+}
+.taufb--direction-column {
+	flex-direction: column;
+}
+
 @media (480px < width <= 782px) {
+	// Tablet Justify Content
 	.taufb--justify-tablet-flex-start {
 		justify-content: flex-start;
 	}
@@ -42,10 +68,33 @@
 	.taufb--justify-tablet-flex-around {
 		justify-content: space-around;
 	}
+	// Tablet Align Items
+	.taufb--align-tablet-flex-start {
+		align-items: flex-start;
+	}
+	.taufb--align-tablet-flex-end {
+		align-items: flex-end;
+	}
+	.taufb--align-tablet-center {
+		align-items: center;
+	}
+	.taufb--align-tablet-baseline {
+		align-items: baseline;
+	}
+	.taufb--align-tablet-stretch {
+		align-items: stretch;
+	}
+	// Tablet Direction
+	.taufb--direction-tablet-row {
+		flex-direction: row;
+	}
+	.taufb--direction-tablet-column {
+		flex-direction: column;
+	}
 }
 
-// Mobile Justify Content
 @media (width <= 480px) {
+	// Mobile Justify Content
 	.taufb--justify-mobile-flex-start {
 		justify-content: flex-start;
 	}
@@ -60,5 +109,28 @@
 	}
 	.taufb--justify-mobile-flex-around {
 		justify-content: space-around;
+	}
+	// Tablet Align Items
+	.taufb--align-mobile-flex-start {
+		align-items: flex-start;
+	}
+	.taufb--align-mobile-flex-end {
+		align-items: flex-end;
+	}
+	.taufb--align-mobile-center {
+		align-items: center;
+	}
+	.taufb--align-mobile-baseline {
+		align-items: baseline;
+	}
+	.taufb--align-mobile-stretch {
+		align-items: stretch;
+	}
+	// Mobile Direction
+	.taufb--direction-mobile-row {
+		flex-direction: row;
+	}
+	.taufb--direction-mobile-column {
+		flex-direction: column;
 	}
 }

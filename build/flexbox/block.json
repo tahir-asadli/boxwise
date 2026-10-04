@@ -23,6 +23,30 @@
     "mobileJustifyContent": {
       "type": "string",
       "default": "flex-start"
+    },
+    "alignItems": {
+      "type": "string",
+      "default": "stretch"
+    },
+    "tabletAlignItems": {
+      "type": "string",
+      "default": "stretch"
+    },
+    "mobileAlignItems": {
+      "type": "string",
+      "default": "stretch"
+    },
+    "direction": {
+      "type": "string",
+      "default": ""
+    },
+    "tabletDirection": {
+      "type": "string",
+      "default": ""
+    },
+    "mobileDirection": {
+      "type": "string",
+      "default": ""
     }
   },
   "textdomain": "fbtt",
