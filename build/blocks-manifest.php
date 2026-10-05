@@ -4,7 +4,7 @@ return array(
 	'flexbox' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
-		'name' => 'taufb/ultimate-flexbox',
+		'name' => 'ultimate-flexbox/ultimate-flexbox',
 		'version' => '0.1.0',
 		'title' => 'Ultimate Flexbox',
 		'category' => 'widgets',

@@ -68,7 +68,7 @@
 
 // Desktop Display
 .taufb--display-none {
-	display: none;
+	opacity: 0.5;
 }
 .taufb--display-flex {
 	display: flex;
@@ -152,9 +152,11 @@
 
 	// Tablet Display
 	.taufb--display-tablet-none {
+		opacity: 0.5;
 		display: none;
 	}
 	.taufb--display-tablet-flex {
+		opacity: 1;
 		display: flex;
 	}
 	.taufb--display-tablet-inline-flex {
@@ -237,9 +239,11 @@
 	// Mobile Display
 	.taufb--display-mobile-none {
 		display: none;
+		opacity: 0.5;
 	}
 	.taufb--display-mobile-flex {
 		display: flex;
+		opacity: 1;
 	}
 	.taufb--display-mobile-inline-flex {
 		display: inline-flex;

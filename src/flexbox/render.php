@@ -1,8 +1,8 @@
 <?php
 /**
- * Flexbox
+ * Ultimate Flexbox
  *
- * @package taufb
+ * @package ultimate-flexbox
  */
 
 
