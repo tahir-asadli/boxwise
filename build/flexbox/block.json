@@ -34,27 +34,27 @@
   "attributes": {
     "justifyContent": {
       "type": "string",
-      "default": "flex-start"
+      "default": ""
     },
     "tabletJustifyContent": {
       "type": "string",
-      "default": "flex-start"
+      "default": ""
     },
     "mobileJustifyContent": {
       "type": "string",
-      "default": "flex-start"
+      "default": ""
     },
     "alignItems": {
       "type": "string",
-      "default": "stretch"
+      "default": ""
     },
     "tabletAlignItems": {
       "type": "string",
-      "default": "stretch"
+      "default": ""
     },
     "mobileAlignItems": {
       "type": "string",
-      "default": "stretch"
+      "default": ""
     },
     "direction": {
       "type": "string",

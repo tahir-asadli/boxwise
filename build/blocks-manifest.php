@@ -39,27 +39,27 @@ return array(
 		'attributes' => array(
 			'justifyContent' => array(
 				'type' => 'string',
-				'default' => 'flex-start'
+				'default' => ''
 			),
 			'tabletJustifyContent' => array(
 				'type' => 'string',
-				'default' => 'flex-start'
+				'default' => ''
 			),
 			'mobileJustifyContent' => array(
 				'type' => 'string',
-				'default' => 'flex-start'
+				'default' => ''
 			),
 			'alignItems' => array(
 				'type' => 'string',
-				'default' => 'stretch'
+				'default' => ''
 			),
 			'tabletAlignItems' => array(
 				'type' => 'string',
-				'default' => 'stretch'
+				'default' => ''
 			),
 			'mobileAlignItems' => array(
 				'type' => 'string',
-				'default' => 'stretch'
+				'default' => ''
 			),
 			'direction' => array(
 				'type' => 'string',

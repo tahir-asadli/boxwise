@@ -128,7 +128,15 @@ const DesktopSettings = ({
   attributes
 }) => {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingJustifyContent, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingDisplay, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Desktop"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingWidth, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Desktop"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingJustifyContent, {
       setAttributes: setAttributes,
       attributes: attributes,
       device: "Desktop"
@@ -144,11 +152,11 @@ const DesktopSettings = ({
       setAttributes: setAttributes,
       attributes: attributes,
       device: "Desktop"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingWidth, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingColumnGap, {
       setAttributes: setAttributes,
       attributes: attributes,
       device: "Desktop"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingDisplay, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingRowGap, {
       setAttributes: setAttributes,
       attributes: attributes,
       device: "Desktop"
@@ -157,14 +165,6 @@ const DesktopSettings = ({
       attributes: attributes,
       device: "Desktop"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingShrink, {
-      setAttributes: setAttributes,
-      attributes: attributes,
-      device: "Desktop"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingColumnGap, {
-      setAttributes: setAttributes,
-      attributes: attributes,
-      device: "Desktop"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingRowGap, {
       setAttributes: setAttributes,
       attributes: attributes,
       device: "Desktop"
@@ -176,7 +176,15 @@ const TabletSettings = ({
   attributes
 }) => {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingJustifyContent, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingDisplay, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Tablet"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingWidth, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Tablet"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingJustifyContent, {
       setAttributes: setAttributes,
       attributes: attributes,
       device: "Tablet"
@@ -192,11 +200,11 @@ const TabletSettings = ({
       setAttributes: setAttributes,
       attributes: attributes,
       device: "Tablet"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingWidth, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingColumnGap, {
       setAttributes: setAttributes,
       attributes: attributes,
       device: "Tablet"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingDisplay, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingRowGap, {
       setAttributes: setAttributes,
       attributes: attributes,
       device: "Tablet"
@@ -205,14 +213,6 @@ const TabletSettings = ({
       attributes: attributes,
       device: "Tablet"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingShrink, {
-      setAttributes: setAttributes,
-      attributes: attributes,
-      device: "Tablet"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingColumnGap, {
-      setAttributes: setAttributes,
-      attributes: attributes,
-      device: "Tablet"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingRowGap, {
       setAttributes: setAttributes,
       attributes: attributes,
       device: "Tablet"
@@ -224,7 +224,15 @@ const MobileSettings = ({
   attributes
 }) => {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingJustifyContent, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingDisplay, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Mobile"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingWidth, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Mobile"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingJustifyContent, {
       setAttributes: setAttributes,
       attributes: attributes,
       device: "Mobile"
@@ -240,11 +248,11 @@ const MobileSettings = ({
       setAttributes: setAttributes,
       attributes: attributes,
       device: "Mobile"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingWidth, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingColumnGap, {
       setAttributes: setAttributes,
       attributes: attributes,
       device: "Mobile"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingDisplay, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingRowGap, {
       setAttributes: setAttributes,
       attributes: attributes,
       device: "Mobile"
@@ -253,14 +261,6 @@ const MobileSettings = ({
       attributes: attributes,
       device: "Mobile"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingShrink, {
-      setAttributes: setAttributes,
-      attributes: attributes,
-      device: "Mobile"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingColumnGap, {
-      setAttributes: setAttributes,
-      attributes: attributes,
-      device: "Mobile"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingRowGap, {
       setAttributes: setAttributes,
       attributes: attributes,
       device: "Mobile"
@@ -460,6 +460,7 @@ const SettingWidth = ({
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalUnitControl, {
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Width', "flex-block"),
+      placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Initial', "flex-block"),
       value: device == "Desktop" ? attributes.width : device == "Tablet" ? attributes.tabletWidth : attributes.mobileWidth,
       onChange: value => {
         if (device == "Desktop") {
@@ -616,6 +617,7 @@ const SettingColumnGap = ({
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalUnitControl, {
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Column Gap', "flex-block"),
+      placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Initial', "flex-block"),
       value: device == "Desktop" ? attributes.columnGap : device == "Tablet" ? attributes.tabletColumnGap : attributes.mobileColumnGap,
       onChange: value => {
         if (device == "Desktop") {
@@ -664,6 +666,7 @@ const SettingRowGap = ({
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalUnitControl, {
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Row Gap', "flex-block"),
+      placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Initial', "flex-block"),
       value: device == "Desktop" ? attributes.rowGap : device == "Tablet" ? attributes.tabletRowGap : attributes.mobileRowGap,
       onChange: value => {
         if (device == "Desktop") {
@@ -920,13 +923,7 @@ const classNames = attributes => {
     mobileGrow,
     shrink,
     tabletShrink,
-    mobileShrink,
-    columnGap,
-    tabletColumnGap,
-    mobileColumnGap,
-    rowGap,
-    tabletRowGap,
-    mobileRowGap
+    mobileShrink
   } = attributes;
   const classNames = [];
   classNames.push("taufb");
@@ -943,7 +940,7 @@ const classNames = attributes => {
     classNames.push(`taufb--align-${alignItems}`);
   }
   if (tabletAlignItems) {
-    classNames.push(`taufb--justify-tablet-${tabletAlignItems}`);
+    classNames.push(`taufb--align-tablet-${tabletAlignItems}`);
   }
   if (mobileAlignItems) {
     classNames.push(`taufb--align-mobile-${mobileAlignItems}`);
@@ -2299,7 +2296,7 @@ const toPascalCase = (string) => {
   \********************************/
 (module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"taufb/ultimate-flexbox","version":"0.1.0","title":"Ultimate Flexbox","category":"widgets","icon":"smiley","description":"Ultimate Flexbox is Gutenberg block designed to enhance the WordPress block editor.","example":{},"supports":{"html":false,"color":{"background":true,"text":true},"typography":{"fontSize":true,"lineHeight":true,"textAlign":true},"background":{"backgroundImage":true,"backgroundSize":true},"shadow":true,"align":true,"alignWide":true,"spacing":{"margin":true,"padding":true}},"attributes":{"justifyContent":{"type":"string","default":"flex-start"},"tabletJustifyContent":{"type":"string","default":"flex-start"},"mobileJustifyContent":{"type":"string","default":"flex-start"},"alignItems":{"type":"string","default":"stretch"},"tabletAlignItems":{"type":"string","default":"stretch"},"mobileAlignItems":{"type":"string","default":"stretch"},"direction":{"type":"string","default":""},"tabletDirection":{"type":"string","default":""},"mobileDirection":{"type":"string","default":""},"wrap":{"type":"string","default":""},"tabletWrap":{"type":"string","default":""},"mobileWrap":{"type":"string","default":""},"width":{"type":"string","default":""},"tabletWidth":{"type":"string","default":""},"mobileWidth":{"type":"string","default":""},"display":{"type":"string","default":"flex"},"tabletDisplay":{"type":"string","default":"flex"},"mobileDisplay":{"type":"string","default":"flex"},"grow":{"type":"string","default":""},"tabletGrow":{"type":"string","default":""},"mobileGrow":{"type":"string","default":""},"shrink":{"type":"string","default":""},"tabletShrink":{"type":"string","default":""},"mobileShrink":{"type":"string","default":""},"columnGap":{"type":"string","default":""},"tabletColumnGap":{"type":"string","default":""},"mobileColumnGap":{"type":"string","default":""},"rowGap":{"type":"string","default":""},"tabletRowGap":{"type":"string","default":""},"mobileRowGap":{"type":"string","default":""}},"textdomain":"fbtt","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"taufb/ultimate-flexbox","version":"0.1.0","title":"Ultimate Flexbox","category":"widgets","icon":"smiley","description":"Ultimate Flexbox is Gutenberg block designed to enhance the WordPress block editor.","example":{},"supports":{"html":false,"color":{"background":true,"text":true},"typography":{"fontSize":true,"lineHeight":true,"textAlign":true},"background":{"backgroundImage":true,"backgroundSize":true},"shadow":true,"align":true,"alignWide":true,"spacing":{"margin":true,"padding":true}},"attributes":{"justifyContent":{"type":"string","default":""},"tabletJustifyContent":{"type":"string","default":""},"mobileJustifyContent":{"type":"string","default":""},"alignItems":{"type":"string","default":""},"tabletAlignItems":{"type":"string","default":""},"mobileAlignItems":{"type":"string","default":""},"direction":{"type":"string","default":""},"tabletDirection":{"type":"string","default":""},"mobileDirection":{"type":"string","default":""},"wrap":{"type":"string","default":""},"tabletWrap":{"type":"string","default":""},"mobileWrap":{"type":"string","default":""},"width":{"type":"string","default":""},"tabletWidth":{"type":"string","default":""},"mobileWidth":{"type":"string","default":""},"display":{"type":"string","default":"flex"},"tabletDisplay":{"type":"string","default":"flex"},"mobileDisplay":{"type":"string","default":"flex"},"grow":{"type":"string","default":""},"tabletGrow":{"type":"string","default":""},"mobileGrow":{"type":"string","default":""},"shrink":{"type":"string","default":""},"tabletShrink":{"type":"string","default":""},"mobileShrink":{"type":"string","default":""},"columnGap":{"type":"string","default":""},"tabletColumnGap":{"type":"string","default":""},"mobileColumnGap":{"type":"string","default":""},"rowGap":{"type":"string","default":""},"tabletRowGap":{"type":"string","default":""},"mobileRowGap":{"type":"string","default":""}},"textdomain":"fbtt","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ }
 

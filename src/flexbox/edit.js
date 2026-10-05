@@ -89,44 +89,44 @@ export default function Edit(props) {
 
 const DesktopSettings = ({ setAttributes, attributes }) => {
 	return <>
+		<SettingDisplay setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
+		<SettingWidth setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
 		<SettingJustifyContent setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
 		<SettingAlignItems setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
 		<SettingDirection setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
 		<SettingWrap setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
-		<SettingWidth setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
-		<SettingDisplay setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
-		<SettingGrow setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
-		<SettingShrink setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
 		<SettingColumnGap setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
 		<SettingRowGap setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
+		<SettingGrow setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
+		<SettingShrink setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
 	</>
 }
 const TabletSettings = ({ setAttributes, attributes }) => {
 	return <>
+		<SettingDisplay setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
+		<SettingWidth setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
 		<SettingJustifyContent setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
 		<SettingAlignItems setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
 		<SettingDirection setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
 		<SettingWrap setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
-		<SettingWidth setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
-		<SettingDisplay setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
-		<SettingGrow setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
-		<SettingShrink setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
 		<SettingColumnGap setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
 		<SettingRowGap setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
+		<SettingGrow setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
+		<SettingShrink setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
 	</>
 }
 const MobileSettings = ({ setAttributes, attributes }) => {
 	return <>
+		<SettingDisplay setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
+		<SettingWidth setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
 		<SettingJustifyContent setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
 		<SettingAlignItems setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
 		<SettingDirection setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
 		<SettingWrap setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
-		<SettingWidth setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
-		<SettingDisplay setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
-		<SettingGrow setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
-		<SettingShrink setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
 		<SettingColumnGap setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
 		<SettingRowGap setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
+		<SettingGrow setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
+		<SettingShrink setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
 	</>
 }
 
@@ -295,6 +295,7 @@ const SettingWidth = ({ setAttributes, attributes, device }) => {
 	return <>
 		<UnitControl
 			label={__('Width', "flex-block")}
+			placeholder={__('Initial', "flex-block")}
 			value={device == "Desktop" ? attributes.width : device == "Tablet" ? attributes.tabletWidth : attributes.mobileWidth}
 			onChange={(value) => {
 				if (device == "Desktop") {
@@ -403,6 +404,7 @@ const SettingColumnGap = ({ setAttributes, attributes, device }) => {
 	return <>
 		<UnitControl
 			label={__('Column Gap', "flex-block")}
+			placeholder={__('Initial', "flex-block")}
 			value={device == "Desktop" ? attributes.columnGap : device == "Tablet" ? attributes.tabletColumnGap : attributes.mobileColumnGap}
 			onChange={(value) => {
 				if (device == "Desktop") {
@@ -427,6 +429,7 @@ const SettingRowGap = ({ setAttributes, attributes, device }) => {
 	return <>
 		<UnitControl
 			label={__('Row Gap', "flex-block")}
+			placeholder={__('Initial', "flex-block")}
 			value={device == "Desktop" ? attributes.rowGap : device == "Tablet" ? attributes.tabletRowGap : attributes.mobileRowGap}
 			onChange={(value) => {
 				if (device == "Desktop") {

@@ -118,12 +118,6 @@ export const classNames = (attributes) => {
     shrink,
     tabletShrink,
     mobileShrink,
-    columnGap,
-    tabletColumnGap,
-    mobileColumnGap,
-    rowGap,
-    tabletRowGap,
-    mobileRowGap,
   } = attributes;
 
   const classNames = [];
@@ -149,7 +143,7 @@ export const classNames = (attributes) => {
   }
   if (tabletAlignItems) {
     classNames.push(
-      `taufb--justify-tablet-${tabletAlignItems}`,
+      `taufb--align-tablet-${tabletAlignItems}`,
     );
   }
   if (mobileAlignItems) {
