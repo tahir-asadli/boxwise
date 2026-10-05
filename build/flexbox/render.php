@@ -72,6 +72,51 @@ if ( $ultimate_flexbox_mobile_wrap ) {
 	$ultimate_flexbox_classes[] = 'taufb--wrap-mobile-' . $ultimate_flexbox_mobile_wrap;
 }
 
+// Display
+$ultimate_flexbox_display            = ! empty( $attributes['display'] ) ? $attributes['display'] : '';
+$ultimate_flexbox_tablet_display     = ! empty( $attributes['tabletDisplay'] ) ? $attributes['tabletDisplay'] : '';
+$ultimate_flexbox_mobile_display     = ! empty( $attributes['mobileDisplay'] ) ? $attributes['mobileDisplay'] : '';
+
+if ( $ultimate_flexbox_display ) {
+	$ultimate_flexbox_classes[] = 'taufb--display-' . $ultimate_flexbox_display;
+}
+if ( $ultimate_flexbox_tablet_display ) {
+	$ultimate_flexbox_classes[] = 'taufb--display-tablet-' . $ultimate_flexbox_tablet_display;
+}
+if ( $ultimate_flexbox_mobile_display ) {
+	$ultimate_flexbox_classes[] = 'taufb--display-mobile-' . $ultimate_flexbox_mobile_display;
+}
+
+// Grow
+$ultimate_flexbox_grow            = ! empty( $attributes['grow'] ) ? $attributes['grow'] : '';
+$ultimate_flexbox_tablet_grow     = ! empty( $attributes['tabletGrow'] ) ? $attributes['tabletGrow'] : '';
+$ultimate_flexbox_mobile_grow     = ! empty( $attributes['mobileGrow'] ) ? $attributes['mobileGrow'] : '';
+
+if ( $ultimate_flexbox_grow ) {
+	$ultimate_flexbox_classes[] = 'taufb--grow-' . $ultimate_flexbox_grow;
+}
+if ( $ultimate_flexbox_tablet_grow ) {
+	$ultimate_flexbox_classes[] = 'taufb--grow-tablet-' . $ultimate_flexbox_tablet_grow;
+}
+if ( $ultimate_flexbox_mobile_grow ) {
+	$ultimate_flexbox_classes[] = 'taufb--grow-mobile-' . $ultimate_flexbox_mobile_grow;
+}
+
+// Shrink
+$ultimate_flexbox_shrink            = ! empty( $attributes['shrink'] ) ? $attributes['shrink'] : '';
+$ultimate_flexbox_tablet_shrink     = ! empty( $attributes['tabletShrink'] ) ? $attributes['tabletShrink'] : '';
+$ultimate_flexbox_mobile_shrink     = ! empty( $attributes['mobileShrink'] ) ? $attributes['mobileShrink'] : '';
+
+if ( $ultimate_flexbox_shrink ) {
+	$ultimate_flexbox_classes[] = 'taufb--shrink-' . $ultimate_flexbox_shrink;
+}
+if ( $ultimate_flexbox_tablet_shrink ) {
+	$ultimate_flexbox_classes[] = 'taufb--shrink-tablet-' . $ultimate_flexbox_tablet_shrink;
+}
+if ( $ultimate_flexbox_mobile_shrink ) {
+	$ultimate_flexbox_classes[] = 'taufb--shrink-mobile-' . $ultimate_flexbox_mobile_shrink;
+}
+
 
 $ultimate_flexbox_additional_attributes = array(
 	'class' => join( ' ', $ultimate_flexbox_classes ),
@@ -79,6 +124,7 @@ $ultimate_flexbox_additional_attributes = array(
 );
 
 $ultimate_flexbox_styles = [];
+// Width
 if(!empty($attributes['width'])) {
 	$ultimate_flexbox_styles['width'] = $attributes['width'];
 }
@@ -87,6 +133,28 @@ if(!empty($attributes['tabletWidth'])) {
 }
 if(!empty($attributes['mobileWidth'])) {
 	$ultimate_flexbox_styles['mobileWidth'] = $attributes['mobileWidth'];
+}
+
+// Column Gap
+if(!empty($attributes['columnGap'])) {
+	$ultimate_flexbox_styles['columnGap'] = $attributes['columnGap'];
+}
+if(!empty($attributes['tabletColumnGap'])) {
+	$ultimate_flexbox_styles['tabletColumnGap'] = $attributes['tabletColumnGap'];
+}
+if(!empty($attributes['mobileColumnGap'])) {
+	$ultimate_flexbox_styles['mobileColumnGap'] = $attributes['mobileColumnGap'];
+}
+
+// Row Gap
+if(!empty($attributes['rowGap'])) {
+	$ultimate_flexbox_styles['rowGap'] = $attributes['rowGap'];
+}
+if(!empty($attributes['tabletRowGap'])) {
+	$ultimate_flexbox_styles['tabletRowGap'] = $attributes['tabletRowGap'];
+}
+if(!empty($attributes['mobileRowGap'])) {
+	$ultimate_flexbox_styles['mobileRowGap'] = $attributes['mobileRowGap'];
 }
 
 ?>
@@ -107,14 +175,26 @@ if(!empty($attributes['mobileWidth'])) {
 		@media only screen {
 			#<?php echo esc_attr( $ultimate_flexbox_additional_attributes['id'] ); ?> {
 				<?php if(!empty($ultimate_flexbox_styles['width'])) {?>
-					<?php echo sprintf("width: %s", $ultimate_flexbox_styles['width']); ?>
+					<?php echo sprintf("width: %s;", $ultimate_flexbox_styles['width']); ?>
+				<?php } ?>
+				<?php if(!empty($ultimate_flexbox_styles['columnGap'])) {?>
+					<?php echo sprintf("column-gap: %s;", $ultimate_flexbox_styles['columnGap']); ?>
+				<?php } ?>
+				<?php if(!empty($ultimate_flexbox_styles['rowGap'])) {?>
+					<?php echo sprintf("row-gap: %s;", $ultimate_flexbox_styles['rowGap']); ?>
 				<?php } ?>
 			}
 		}
 		@media (480px < width <= 782px) {
 			#<?php echo esc_attr( $ultimate_flexbox_additional_attributes['id'] ); ?> {
 				<?php if(!empty($ultimate_flexbox_styles['tabletWidth'])) {?>
-					<?php echo sprintf("width: %s", $ultimate_flexbox_styles['tabletWidth']); ?>
+					<?php echo sprintf("width: %s;", $ultimate_flexbox_styles['tabletWidth']); ?>
+				<?php } ?>
+				<?php if(!empty($ultimate_flexbox_styles['tabletColumnGap'])) {?>
+					<?php echo sprintf("column-gap: %s;", $ultimate_flexbox_styles['tabletColumnGap']); ?>
+				<?php } ?>
+				<?php if(!empty($ultimate_flexbox_styles['tabletRowGap'])) {?>
+					<?php echo sprintf("row-gap: %s;", $ultimate_flexbox_styles['tabletRowGap']); ?>
 				<?php } ?>
 			}
 		}
@@ -122,7 +202,13 @@ if(!empty($attributes['mobileWidth'])) {
 		@media (width <= 480px) {
 			#<?php echo esc_attr( $ultimate_flexbox_additional_attributes['id'] ); ?> {
 				<?php if(!empty($ultimate_flexbox_styles['mobileWidth'])) {?>
-					<?php echo sprintf("width: %s", $ultimate_flexbox_styles['mobileWidth']); ?>
+					<?php echo sprintf("width: %s;", $ultimate_flexbox_styles['mobileWidth']); ?>
+				<?php } ?>
+				<?php if(!empty($ultimate_flexbox_styles['mobileColumnGap'])) {?>
+					<?php echo sprintf("column-gap: %s;", $ultimate_flexbox_styles['mobileColumnGap']); ?>
+				<?php } ?>
+				<?php if(!empty($ultimate_flexbox_styles['mobileRowGap'])) {?>
+					<?php echo sprintf("row-gap: %s;", $ultimate_flexbox_styles['mobileRowGap']); ?>
 				<?php } ?>
 			}
 		}

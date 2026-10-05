@@ -38,6 +38,8 @@ import {
   StretchHorizontal,
   ArrowRight,
   ArrowDown,
+  ArrowUp,
+  ArrowLeft,
   Ban,
 } from "lucide-react";
 
@@ -56,8 +58,40 @@ export const ICONS = {
   HSpaceAround: AlignHorizontalSpaceAround,
   HStrech: StretchHorizontal,
   Ban: Ban,
+  ArrowUp: ArrowUp,
   ArrowRight: ArrowRight,
   ArrowDown: ArrowDown,
+  ArrowLeft: ArrowLeft,
+}
+
+export const getWidth = (deviceType, attributes) => {
+  if (deviceType == "Desktop") {
+    return attributes.width ? attributes.width : undefined
+  } else if (deviceType == "Tablet") {
+    return attributes.tabletWidth ? attributes.tabletWidth : undefined
+  } else {
+    return attributes.mobileWidth ? attributes.mobileWidth : undefined
+  }
+}
+
+export const getColumnGap = (deviceType, attributes) => {
+  if (deviceType == "Desktop") {
+    return attributes.columnGap ? attributes.columnGap : undefined
+  } else if (deviceType == "Tablet") {
+    return attributes.tabletColumnGap ? attributes.tabletColumnGap : undefined
+  } else {
+    return attributes.mobileColumnGap ? attributes.mobileColumnGap : undefined
+  }
+}
+
+export const getRowGap = (deviceType, attributes) => {
+  if (deviceType == "Desktop") {
+    return attributes.rowGap ? attributes.rowGap : undefined
+  } else if (deviceType == "Tablet") {
+    return attributes.tabletRowGap ? attributes.tabletRowGap : undefined
+  } else {
+    return attributes.mobileRowGap ? attributes.mobileRowGap : undefined
+  }
 }
 
 export const classNames = (attributes) => {
@@ -75,30 +109,21 @@ export const classNames = (attributes) => {
     wrap,
     tabletWrap,
     mobileWrap,
-    columnGap,
-    tabletColumnGap,
-    mobileColumnGap,
-    columnGapUnit,
-    tabletColumnGapUnit,
-    mobileColumnGapUnit,
-    rowGap,
-    tabletRowGap,
-    mobileRowGap,
-    rowGapUnit,
-    tabletRowGapUnit,
-    mobileRowGapUnit,
-    reverse,
-    tabletReverse,
-    mobileReverse,
+    display,
+    tabletDisplay,
+    mobileDisplay,
     grow,
     tabletGrow,
     mobileGrow,
     shrink,
     tabletShrink,
     mobileShrink,
-    display,
-    tabletDisplay,
-    mobileDisplay,
+    columnGap,
+    tabletColumnGap,
+    mobileColumnGap,
+    rowGap,
+    tabletRowGap,
+    mobileRowGap,
   } = attributes;
 
   const classNames = [];
@@ -158,6 +183,48 @@ export const classNames = (attributes) => {
   if (mobileWrap) {
     classNames.push(
       `taufb--wrap-mobile-${mobileWrap}`,
+    );
+  }
+
+  if (display) {
+    classNames.push(`taufb--display-${display}`);
+  }
+  if (tabletDisplay) {
+    classNames.push(
+      `taufb--display-tablet-${tabletDisplay}`,
+    );
+  }
+  if (mobileDisplay) {
+    classNames.push(
+      `taufb--display-mobile-${mobileDisplay}`,
+    );
+  }
+
+  if (grow) {
+    classNames.push(`taufb--grow-${grow}`);
+  }
+  if (tabletGrow) {
+    classNames.push(
+      `taufb--grow-tablet-${tabletGrow}`,
+    );
+  }
+  if (mobileGrow) {
+    classNames.push(
+      `taufb--grow-mobile-${mobileGrow}`,
+    );
+  }
+
+  if (shrink) {
+    classNames.push(`taufb--shrink-${shrink}`);
+  }
+  if (tabletShrink) {
+    classNames.push(
+      `taufb--shrink-tablet-${tabletShrink}`,
+    );
+  }
+  if (mobileShrink) {
+    classNames.push(
+      `taufb--shrink-mobile-${mobileShrink}`,
     );
   }
 

@@ -91,6 +91,66 @@
     "mobileWidth": {
       "type": "string",
       "default": ""
+    },
+    "display": {
+      "type": "string",
+      "default": "flex"
+    },
+    "tabletDisplay": {
+      "type": "string",
+      "default": "flex"
+    },
+    "mobileDisplay": {
+      "type": "string",
+      "default": "flex"
+    },
+    "grow": {
+      "type": "string",
+      "default": ""
+    },
+    "tabletGrow": {
+      "type": "string",
+      "default": ""
+    },
+    "mobileGrow": {
+      "type": "string",
+      "default": ""
+    },
+    "shrink": {
+      "type": "string",
+      "default": ""
+    },
+    "tabletShrink": {
+      "type": "string",
+      "default": ""
+    },
+    "mobileShrink": {
+      "type": "string",
+      "default": ""
+    },
+    "columnGap": {
+      "type": "string",
+      "default": ""
+    },
+    "tabletColumnGap": {
+      "type": "string",
+      "default": ""
+    },
+    "mobileColumnGap": {
+      "type": "string",
+      "default": ""
+    },
+    "rowGap": {
+      "type": "string",
+      "default": ""
+    },
+    "tabletRowGap": {
+      "type": "string",
+      "default": ""
+    },
+    "mobileRowGap": {
+      "type": "string",
+      "default": ""
     }
   },
   "textdomain": "fbtt",

@@ -96,6 +96,66 @@ return array(
 			'mobileWidth' => array(
 				'type' => 'string',
 				'default' => ''
+			),
+			'display' => array(
+				'type' => 'string',
+				'default' => 'flex'
+			),
+			'tabletDisplay' => array(
+				'type' => 'string',
+				'default' => 'flex'
+			),
+			'mobileDisplay' => array(
+				'type' => 'string',
+				'default' => 'flex'
+			),
+			'grow' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'tabletGrow' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'mobileGrow' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'shrink' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'tabletShrink' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'mobileShrink' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'columnGap' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'tabletColumnGap' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'mobileColumnGap' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'rowGap' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'tabletRowGap' => array(
+				'type' => 'string',
+				'default' => ''
+			),
+			'mobileRowGap' => array(
+				'type' => 'string',
+				'default' => ''
 			)
 		),
 		'textdomain' => 'fbtt',

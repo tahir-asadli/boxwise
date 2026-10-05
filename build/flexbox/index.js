@@ -74,15 +74,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const getWidth = (deviceType, attributes) => {
-  if (deviceType == "Desktop") {
-    return attributes.width ? attributes.width : undefined;
-  } else if (deviceType == "Tablet") {
-    return attributes.tabletWidth ? attributes.tabletWidth : undefined;
-  } else {
-    return attributes.mobileWidth ? attributes.mobileWidth : undefined;
-  }
-};
 function Edit(props) {
   const {
     setAttributes
@@ -91,7 +82,9 @@ function Edit(props) {
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
     className: (0,_lib__WEBPACK_IMPORTED_MODULE_4__.classNames)(props.attributes).join(" "),
     style: {
-      width: getWidth(deviceType, props.attributes)
+      width: (0,_lib__WEBPACK_IMPORTED_MODULE_4__.getWidth)(deviceType, props.attributes),
+      columnGap: (0,_lib__WEBPACK_IMPORTED_MODULE_4__.getColumnGap)(deviceType, props.attributes),
+      rowGap: (0,_lib__WEBPACK_IMPORTED_MODULE_4__.getRowGap)(deviceType, props.attributes)
     }
   });
   const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useInnerBlocksProps)(blockProps);
@@ -155,6 +148,26 @@ const DesktopSettings = ({
       setAttributes: setAttributes,
       attributes: attributes,
       device: "Desktop"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingDisplay, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Desktop"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingGrow, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Desktop"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingShrink, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Desktop"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingColumnGap, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Desktop"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingRowGap, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Desktop"
     })]
   });
 };
@@ -183,6 +196,26 @@ const TabletSettings = ({
       setAttributes: setAttributes,
       attributes: attributes,
       device: "Tablet"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingDisplay, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Tablet"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingGrow, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Tablet"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingShrink, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Tablet"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingColumnGap, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Tablet"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingRowGap, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Tablet"
     })]
   });
 };
@@ -208,6 +241,26 @@ const MobileSettings = ({
       attributes: attributes,
       device: "Mobile"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingWidth, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Mobile"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingDisplay, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Mobile"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingGrow, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Mobile"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingShrink, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Mobile"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingColumnGap, {
+      setAttributes: setAttributes,
+      attributes: attributes,
+      device: "Mobile"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(SettingRowGap, {
       setAttributes: setAttributes,
       attributes: attributes,
       device: "Mobile"
@@ -352,6 +405,14 @@ const SettingDirection = ({
       value: "row",
       icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_lib__WEBPACK_IMPORTED_MODULE_4__.ICONS.ArrowRight, {}),
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Row", "flex-block")
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOptionIcon, {
+      value: "column-reverse",
+      icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_lib__WEBPACK_IMPORTED_MODULE_4__.ICONS.ArrowUp, {}),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Column reverse", "flex-block")
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOptionIcon, {
+      value: "row-reverse",
+      icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_lib__WEBPACK_IMPORTED_MODULE_4__.ICONS.ArrowLeft, {}),
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Row reverse", "flex-block")
     })]
   });
 };
@@ -381,15 +442,12 @@ const SettingWrap = ({
     isBlock: true,
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOption, {
       value: "",
-      icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_lib__WEBPACK_IMPORTED_MODULE_4__.ICONS.Ban, {}),
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Not set", "flex-block")
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOption, {
       value: "wrap",
-      icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_lib__WEBPACK_IMPORTED_MODULE_4__.ICONS.ArrowDown, {}),
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Wrap", "flex-block")
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOption, {
       value: "nowrap",
-      icon: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_lib__WEBPACK_IMPORTED_MODULE_4__.ICONS.ArrowRight, {}),
       label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("No wrap", "flex-block")
     })]
   });
@@ -415,6 +473,210 @@ const SettingWidth = ({
         } else {
           setAttributes({
             mobileWidth: value
+          });
+        }
+      },
+      units: [{
+        value: 'px',
+        label: 'px',
+        default: 0
+      }, {
+        value: 'em',
+        label: 'em',
+        default: 0
+      }, {
+        value: 'rem',
+        label: 'rem',
+        default: 0
+      }, {
+        value: '%',
+        label: '%',
+        default: 0
+      }, {
+        value: 'vh',
+        label: 'vh',
+        default: 0
+      }]
+    })
+  });
+};
+const SettingDisplay = ({
+  setAttributes,
+  attributes,
+  device
+}) => {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Display", "flex-block"),
+    value: device == "Desktop" ? attributes.display : device == "Tablet" ? attributes.tabletDisplay : attributes.mobileDisplay,
+    onChange: value => {
+      if (device == "Desktop") {
+        setAttributes({
+          display: value
+        });
+      } else if (device == "Tablet") {
+        setAttributes({
+          tabletDisplay: value
+        });
+      } else {
+        setAttributes({
+          mobileDisplay: value
+        });
+      }
+    },
+    isBlock: true,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOption, {
+      value: "none",
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("None", "flex-block")
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOption, {
+      value: "flex",
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Flex", "flex-block")
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOption, {
+      value: "inline-flex",
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Inline Flex", "flex-block")
+    })]
+  });
+};
+const SettingGrow = ({
+  setAttributes,
+  attributes,
+  device
+}) => {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Grow", "flex-block"),
+    value: device == "Desktop" ? attributes.grow : device == "Tablet" ? attributes.tabletGrow : attributes.mobileGrow,
+    onChange: value => {
+      if (device == "Desktop") {
+        setAttributes({
+          grow: value
+        });
+      } else if (device == "Tablet") {
+        setAttributes({
+          tabletGrow: value
+        });
+      } else {
+        setAttributes({
+          mobileGrow: value
+        });
+      }
+    },
+    isBlock: true,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOption, {
+      value: "",
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Not set", "flex-block")
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOption, {
+      value: "on",
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("On", "flex-block")
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOption, {
+      value: "off",
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Off", "flex-block")
+    })]
+  });
+};
+const SettingShrink = ({
+  setAttributes,
+  attributes,
+  device
+}) => {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControl, {
+    label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Shrink", "flex-block"),
+    value: device == "Desktop" ? attributes.shrink : device == "Tablet" ? attributes.tabletShrink : attributes.mobileShrink,
+    onChange: value => {
+      if (device == "Desktop") {
+        setAttributes({
+          shrink: value
+        });
+      } else if (device == "Tablet") {
+        setAttributes({
+          tabletShrink: value
+        });
+      } else {
+        setAttributes({
+          mobileShrink: value
+        });
+      }
+    },
+    isBlock: true,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOption, {
+      value: "",
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Not set", "flex-block")
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOption, {
+      value: "on",
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("On", "flex-block")
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalToggleGroupControlOption, {
+      value: "off",
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Off", "flex-block")
+    })]
+  });
+};
+const SettingColumnGap = ({
+  setAttributes,
+  attributes,
+  device
+}) => {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalUnitControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Column Gap', "flex-block"),
+      value: device == "Desktop" ? attributes.columnGap : device == "Tablet" ? attributes.tabletColumnGap : attributes.mobileColumnGap,
+      onChange: value => {
+        if (device == "Desktop") {
+          setAttributes({
+            columnGap: value
+          });
+        } else if (device == "Tablet") {
+          setAttributes({
+            tabletColumnGap: value
+          });
+        } else {
+          setAttributes({
+            mobileColumnGap: value
+          });
+        }
+      },
+      units: [{
+        value: 'px',
+        label: 'px',
+        default: 0
+      }, {
+        value: 'em',
+        label: 'em',
+        default: 0
+      }, {
+        value: 'rem',
+        label: 'rem',
+        default: 0
+      }, {
+        value: '%',
+        label: '%',
+        default: 0
+      }, {
+        value: 'vh',
+        label: 'vh',
+        default: 0
+      }]
+    })
+  });
+};
+const SettingRowGap = ({
+  setAttributes,
+  attributes,
+  device
+}) => {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalUnitControl, {
+      label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Row Gap', "flex-block"),
+      value: device == "Desktop" ? attributes.rowGap : device == "Tablet" ? attributes.tabletRowGap : attributes.mobileRowGap,
+      onChange: value => {
+        if (device == "Desktop") {
+          setAttributes({
+            rowGap: value
+          });
+        } else if (device == "Tablet") {
+          setAttributes({
+            tabletRowGap: value
+          });
+        } else {
+          setAttributes({
+            mobileRowGap: value
           });
         }
       },
@@ -542,6 +804,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   ICONS: () => (/* binding */ ICONS),
 /* harmony export */   classNames: () => (/* binding */ classNames),
+/* harmony export */   getColumnGap: () => (/* binding */ getColumnGap),
+/* harmony export */   getRowGap: () => (/* binding */ getRowGap),
+/* harmony export */   getWidth: () => (/* binding */ getWidth),
 /* harmony export */   useDeviceType: () => (/* binding */ useDeviceType)
 /* harmony export */ });
 /* harmony import */ var _wordpress_data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/data */ "@wordpress/data");
@@ -557,10 +822,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/align-vertical-justify-start.mjs");
 /* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/align-vertical-space-between.mjs");
 /* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/arrow-down.mjs");
-/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/arrow-right.mjs");
-/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/ban.mjs");
-/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/stretch-horizontal.mjs");
-/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/stretch-vertical.mjs");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/arrow-left.mjs");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/arrow-right.mjs");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/arrow-up.mjs");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/ban.mjs");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/stretch-horizontal.mjs");
+/* harmony import */ var lucide_react__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! lucide-react */ "./node_modules/lucide-react/dist/esm/icons/stretch-vertical.mjs");
 
 function useDeviceType() {
   return (0,_wordpress_data__WEBPACK_IMPORTED_MODULE_0__.useSelect)(select => {
@@ -591,16 +858,45 @@ const ICONS = {
   VJustifyCenter: lucide_react__WEBPACK_IMPORTED_MODULE_7__["default"],
   VDistributeCenter: lucide_react__WEBPACK_IMPORTED_MODULE_6__["default"],
   VSpaceBetween: lucide_react__WEBPACK_IMPORTED_MODULE_10__["default"],
-  VStrech: lucide_react__WEBPACK_IMPORTED_MODULE_15__["default"],
+  VStrech: lucide_react__WEBPACK_IMPORTED_MODULE_17__["default"],
   HStart: lucide_react__WEBPACK_IMPORTED_MODULE_5__["default"],
   HEnd: lucide_react__WEBPACK_IMPORTED_MODULE_1__["default"],
   HJustifyCenter: lucide_react__WEBPACK_IMPORTED_MODULE_2__["default"],
   HSpaceBetween: lucide_react__WEBPACK_IMPORTED_MODULE_3__["default"],
   HSpaceAround: lucide_react__WEBPACK_IMPORTED_MODULE_4__["default"],
-  HStrech: lucide_react__WEBPACK_IMPORTED_MODULE_14__["default"],
-  Ban: lucide_react__WEBPACK_IMPORTED_MODULE_13__["default"],
-  ArrowRight: lucide_react__WEBPACK_IMPORTED_MODULE_12__["default"],
-  ArrowDown: lucide_react__WEBPACK_IMPORTED_MODULE_11__["default"]
+  HStrech: lucide_react__WEBPACK_IMPORTED_MODULE_16__["default"],
+  Ban: lucide_react__WEBPACK_IMPORTED_MODULE_15__["default"],
+  ArrowUp: lucide_react__WEBPACK_IMPORTED_MODULE_14__["default"],
+  ArrowRight: lucide_react__WEBPACK_IMPORTED_MODULE_13__["default"],
+  ArrowDown: lucide_react__WEBPACK_IMPORTED_MODULE_11__["default"],
+  ArrowLeft: lucide_react__WEBPACK_IMPORTED_MODULE_12__["default"]
+};
+const getWidth = (deviceType, attributes) => {
+  if (deviceType == "Desktop") {
+    return attributes.width ? attributes.width : undefined;
+  } else if (deviceType == "Tablet") {
+    return attributes.tabletWidth ? attributes.tabletWidth : undefined;
+  } else {
+    return attributes.mobileWidth ? attributes.mobileWidth : undefined;
+  }
+};
+const getColumnGap = (deviceType, attributes) => {
+  if (deviceType == "Desktop") {
+    return attributes.columnGap ? attributes.columnGap : undefined;
+  } else if (deviceType == "Tablet") {
+    return attributes.tabletColumnGap ? attributes.tabletColumnGap : undefined;
+  } else {
+    return attributes.mobileColumnGap ? attributes.mobileColumnGap : undefined;
+  }
+};
+const getRowGap = (deviceType, attributes) => {
+  if (deviceType == "Desktop") {
+    return attributes.rowGap ? attributes.rowGap : undefined;
+  } else if (deviceType == "Tablet") {
+    return attributes.tabletRowGap ? attributes.tabletRowGap : undefined;
+  } else {
+    return attributes.mobileRowGap ? attributes.mobileRowGap : undefined;
+  }
 };
 const classNames = attributes => {
   const {
@@ -616,30 +912,21 @@ const classNames = attributes => {
     wrap,
     tabletWrap,
     mobileWrap,
-    columnGap,
-    tabletColumnGap,
-    mobileColumnGap,
-    columnGapUnit,
-    tabletColumnGapUnit,
-    mobileColumnGapUnit,
-    rowGap,
-    tabletRowGap,
-    mobileRowGap,
-    rowGapUnit,
-    tabletRowGapUnit,
-    mobileRowGapUnit,
-    reverse,
-    tabletReverse,
-    mobileReverse,
+    display,
+    tabletDisplay,
+    mobileDisplay,
     grow,
     tabletGrow,
     mobileGrow,
     shrink,
     tabletShrink,
     mobileShrink,
-    display,
-    tabletDisplay,
-    mobileDisplay
+    columnGap,
+    tabletColumnGap,
+    mobileColumnGap,
+    rowGap,
+    tabletRowGap,
+    mobileRowGap
   } = attributes;
   const classNames = [];
   classNames.push("taufb");
@@ -678,6 +965,33 @@ const classNames = attributes => {
   }
   if (mobileWrap) {
     classNames.push(`taufb--wrap-mobile-${mobileWrap}`);
+  }
+  if (display) {
+    classNames.push(`taufb--display-${display}`);
+  }
+  if (tabletDisplay) {
+    classNames.push(`taufb--display-tablet-${tabletDisplay}`);
+  }
+  if (mobileDisplay) {
+    classNames.push(`taufb--display-mobile-${mobileDisplay}`);
+  }
+  if (grow) {
+    classNames.push(`taufb--grow-${grow}`);
+  }
+  if (tabletGrow) {
+    classNames.push(`taufb--grow-tablet-${tabletGrow}`);
+  }
+  if (mobileGrow) {
+    classNames.push(`taufb--grow-mobile-${mobileGrow}`);
+  }
+  if (shrink) {
+    classNames.push(`taufb--shrink-${shrink}`);
+  }
+  if (tabletShrink) {
+    classNames.push(`taufb--shrink-tablet-${tabletShrink}`);
+  }
+  if (mobileShrink) {
+    classNames.push(`taufb--shrink-mobile-${mobileShrink}`);
   }
   return classNames;
 };
@@ -1402,6 +1716,44 @@ const ArrowDown = (0,_createLucideIcon_mjs__WEBPACK_IMPORTED_MODULE_0__["default
 
 /***/ },
 
+/***/ "./node_modules/lucide-react/dist/esm/icons/arrow-left.mjs"
+/*!*****************************************************************!*\
+  !*** ./node_modules/lucide-react/dist/esm/icons/arrow-left.mjs ***!
+  \*****************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   __iconData: () => (/* binding */ __iconData),
+/* harmony export */   "default": () => (/* binding */ ArrowLeft)
+/* harmony export */ });
+/* harmony import */ var _createLucideIcon_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../createLucideIcon.mjs */ "./node_modules/lucide-react/dist/esm/createLucideIcon.mjs");
+/**
+ * @license lucide-react v1.48.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+
+
+const __iconData = {
+  name: "arrow-left",
+  size: 24,
+  node: [
+    ["path", { d: "m12 19-7-7 7-7", key: "1l729n" }],
+    ["path", { d: "M19 12H5", key: "x3x0zl" }]
+  ]
+};
+__iconData.node;
+const ArrowLeft = (0,_createLucideIcon_mjs__WEBPACK_IMPORTED_MODULE_0__["default"])(__iconData);
+
+
+//# sourceMappingURL=arrow-left.mjs.map
+
+
+/***/ },
+
 /***/ "./node_modules/lucide-react/dist/esm/icons/arrow-right.mjs"
 /*!******************************************************************!*\
   !*** ./node_modules/lucide-react/dist/esm/icons/arrow-right.mjs ***!
@@ -1436,6 +1788,44 @@ const ArrowRight = (0,_createLucideIcon_mjs__WEBPACK_IMPORTED_MODULE_0__["defaul
 
 
 //# sourceMappingURL=arrow-right.mjs.map
+
+
+/***/ },
+
+/***/ "./node_modules/lucide-react/dist/esm/icons/arrow-up.mjs"
+/*!***************************************************************!*\
+  !*** ./node_modules/lucide-react/dist/esm/icons/arrow-up.mjs ***!
+  \***************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   __iconData: () => (/* binding */ __iconData),
+/* harmony export */   "default": () => (/* binding */ ArrowUp)
+/* harmony export */ });
+/* harmony import */ var _createLucideIcon_mjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../createLucideIcon.mjs */ "./node_modules/lucide-react/dist/esm/createLucideIcon.mjs");
+/**
+ * @license lucide-react v1.48.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+
+
+
+const __iconData = {
+  name: "arrow-up",
+  size: 24,
+  node: [
+    ["path", { d: "m5 12 7-7 7 7", key: "hav0vg" }],
+    ["path", { d: "M12 19V5", key: "x0mq9r" }]
+  ]
+};
+__iconData.node;
+const ArrowUp = (0,_createLucideIcon_mjs__WEBPACK_IMPORTED_MODULE_0__["default"])(__iconData);
+
+
+//# sourceMappingURL=arrow-up.mjs.map
 
 
 /***/ },
@@ -1909,7 +2299,7 @@ const toPascalCase = (string) => {
   \********************************/
 (module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"taufb/ultimate-flexbox","version":"0.1.0","title":"Ultimate Flexbox","category":"widgets","icon":"smiley","description":"Ultimate Flexbox is Gutenberg block designed to enhance the WordPress block editor.","example":{},"supports":{"html":false,"color":{"background":true,"text":true},"typography":{"fontSize":true,"lineHeight":true,"textAlign":true},"background":{"backgroundImage":true,"backgroundSize":true},"shadow":true,"align":true,"alignWide":true,"spacing":{"margin":true,"padding":true}},"attributes":{"justifyContent":{"type":"string","default":"flex-start"},"tabletJustifyContent":{"type":"string","default":"flex-start"},"mobileJustifyContent":{"type":"string","default":"flex-start"},"alignItems":{"type":"string","default":"stretch"},"tabletAlignItems":{"type":"string","default":"stretch"},"mobileAlignItems":{"type":"string","default":"stretch"},"direction":{"type":"string","default":""},"tabletDirection":{"type":"string","default":""},"mobileDirection":{"type":"string","default":""},"wrap":{"type":"string","default":""},"tabletWrap":{"type":"string","default":""},"mobileWrap":{"type":"string","default":""},"width":{"type":"string","default":""},"tabletWidth":{"type":"string","default":""},"mobileWidth":{"type":"string","default":""}},"textdomain":"fbtt","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"taufb/ultimate-flexbox","version":"0.1.0","title":"Ultimate Flexbox","category":"widgets","icon":"smiley","description":"Ultimate Flexbox is Gutenberg block designed to enhance the WordPress block editor.","example":{},"supports":{"html":false,"color":{"background":true,"text":true},"typography":{"fontSize":true,"lineHeight":true,"textAlign":true},"background":{"backgroundImage":true,"backgroundSize":true},"shadow":true,"align":true,"alignWide":true,"spacing":{"margin":true,"padding":true}},"attributes":{"justifyContent":{"type":"string","default":"flex-start"},"tabletJustifyContent":{"type":"string","default":"flex-start"},"mobileJustifyContent":{"type":"string","default":"flex-start"},"alignItems":{"type":"string","default":"stretch"},"tabletAlignItems":{"type":"string","default":"stretch"},"mobileAlignItems":{"type":"string","default":"stretch"},"direction":{"type":"string","default":""},"tabletDirection":{"type":"string","default":""},"mobileDirection":{"type":"string","default":""},"wrap":{"type":"string","default":""},"tabletWrap":{"type":"string","default":""},"mobileWrap":{"type":"string","default":""},"width":{"type":"string","default":""},"tabletWidth":{"type":"string","default":""},"mobileWidth":{"type":"string","default":""},"display":{"type":"string","default":"flex"},"tabletDisplay":{"type":"string","default":"flex"},"mobileDisplay":{"type":"string","default":"flex"},"grow":{"type":"string","default":""},"tabletGrow":{"type":"string","default":""},"mobileGrow":{"type":"string","default":""},"shrink":{"type":"string","default":""},"tabletShrink":{"type":"string","default":""},"mobileShrink":{"type":"string","default":""},"columnGap":{"type":"string","default":""},"tabletColumnGap":{"type":"string","default":""},"mobileColumnGap":{"type":"string","default":""},"rowGap":{"type":"string","default":""},"tabletRowGap":{"type":"string","default":""},"mobileRowGap":{"type":"string","default":""}},"textdomain":"fbtt","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
 
 /***/ }
 

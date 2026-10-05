@@ -53,17 +53,8 @@ import {
 // 	Ban,
 // } from "lucide-react";
 import { formatLowercase, formatUppercase, alignCenter } from '@wordpress/icons';
-import { classNames, ICONS, useDeviceType } from '../lib';
+import { classNames, getColumnGap, getRowGap, getWidth, ICONS, useDeviceType } from '../lib';
 
-const getWidth = (deviceType, attributes) => {
-	if (deviceType == "Desktop") {
-		return attributes.width ? attributes.width : undefined
-	} else if (deviceType == "Tablet") {
-		return attributes.tabletWidth ? attributes.tabletWidth : undefined
-	} else {
-		return attributes.mobileWidth ? attributes.mobileWidth : undefined
-	}
-}
 
 export default function Edit(props) {
 
@@ -74,7 +65,9 @@ export default function Edit(props) {
 	const blockProps = useBlockProps({
 		className: classNames(props.attributes).join(" "),
 		style: {
-			width: getWidth(deviceType, props.attributes)
+			width: getWidth(deviceType, props.attributes),
+			columnGap: getColumnGap(deviceType, props.attributes),
+			rowGap: getRowGap(deviceType, props.attributes)
 		}
 	});
 	const innerBlocksProps = useInnerBlocksProps(blockProps);
@@ -101,7 +94,11 @@ const DesktopSettings = ({ setAttributes, attributes }) => {
 		<SettingDirection setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
 		<SettingWrap setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
 		<SettingWidth setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
-
+		<SettingDisplay setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
+		<SettingGrow setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
+		<SettingShrink setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
+		<SettingColumnGap setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
+		<SettingRowGap setAttributes={setAttributes} attributes={attributes} device={"Desktop"} />
 	</>
 }
 const TabletSettings = ({ setAttributes, attributes }) => {
@@ -111,6 +108,11 @@ const TabletSettings = ({ setAttributes, attributes }) => {
 		<SettingDirection setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
 		<SettingWrap setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
 		<SettingWidth setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
+		<SettingDisplay setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
+		<SettingGrow setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
+		<SettingShrink setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
+		<SettingColumnGap setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
+		<SettingRowGap setAttributes={setAttributes} attributes={attributes} device={"Tablet"} />
 	</>
 }
 const MobileSettings = ({ setAttributes, attributes }) => {
@@ -120,6 +122,11 @@ const MobileSettings = ({ setAttributes, attributes }) => {
 		<SettingDirection setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
 		<SettingWrap setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
 		<SettingWidth setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
+		<SettingDisplay setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
+		<SettingGrow setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
+		<SettingShrink setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
+		<SettingColumnGap setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
+		<SettingRowGap setAttributes={setAttributes} attributes={attributes} device={"Mobile"} />
 	</>
 }
 
@@ -243,9 +250,18 @@ const SettingDirection = ({ setAttributes, attributes, device }) => {
 			icon={<ICONS.ArrowRight />}
 			label={__("Row", "flex-block")}
 		/>
+		<ToggleGroupControlOptionIcon
+			value="column-reverse"
+			icon={<ICONS.ArrowUp />}
+			label={__("Column reverse", "flex-block")}
+		/>
+		<ToggleGroupControlOptionIcon
+			value="row-reverse"
+			icon={<ICONS.ArrowLeft />}
+			label={__("Row reverse", "flex-block")}
+		/>
 	</ToggleGroupControl>
 }
-
 
 const SettingWrap = ({ setAttributes, attributes, device }) => {
 	return <ToggleGroupControl label={__("Wrap", "flex-block")}
@@ -262,17 +278,14 @@ const SettingWrap = ({ setAttributes, attributes, device }) => {
 		isBlock>
 		<ToggleGroupControlOption
 			value=""
-			icon={<ICONS.Ban />}
 			label={__("Not set", "flex-block")}
 		/>
 		<ToggleGroupControlOption
 			value="wrap"
-			icon={<ICONS.ArrowDown />}
 			label={__("Wrap", "flex-block")}
 		/>
 		<ToggleGroupControlOption
 			value="nowrap"
-			icon={<ICONS.ArrowRight />}
 			label={__("No wrap", "flex-block")}
 		/>
 	</ToggleGroupControl>
@@ -290,6 +303,138 @@ const SettingWidth = ({ setAttributes, attributes, device }) => {
 					setAttributes({ tabletWidth: value })
 				} else {
 					setAttributes({ mobileWidth: value })
+				}
+			}}
+			units={[
+				{ value: 'px', label: 'px', default: 0 },
+				{ value: 'em', label: 'em', default: 0 },
+				{ value: 'rem', label: 'rem', default: 0 },
+				{ value: '%', label: '%', default: 0 },
+				{ value: 'vh', label: 'vh', default: 0 },
+			]}
+		/></>
+}
+
+const SettingDisplay = ({ setAttributes, attributes, device }) => {
+	return <ToggleGroupControl label={__("Display", "flex-block")}
+		value={device == "Desktop" ? attributes.display : device == "Tablet" ? attributes.tabletDisplay : attributes.mobileDisplay}
+		onChange={(value) => {
+			if (device == "Desktop") {
+				setAttributes({ display: value })
+			} else if (device == "Tablet") {
+				setAttributes({ tabletDisplay: value })
+			} else {
+				setAttributes({ mobileDisplay: value })
+			}
+		}}
+		isBlock>
+		<ToggleGroupControlOption
+			value="none"
+			label={__("None", "flex-block")}
+		/>
+		<ToggleGroupControlOption
+			value="flex"
+			label={__("Flex", "flex-block")}
+		/>
+		<ToggleGroupControlOption
+			value="inline-flex"
+			label={__("Inline Flex", "flex-block")}
+		/>
+	</ToggleGroupControl>
+}
+
+const SettingGrow = ({ setAttributes, attributes, device }) => {
+	return <ToggleGroupControl label={__("Grow", "flex-block")}
+		value={device == "Desktop" ? attributes.grow : device == "Tablet" ? attributes.tabletGrow : attributes.mobileGrow}
+		onChange={(value) => {
+			if (device == "Desktop") {
+				setAttributes({ grow: value })
+			} else if (device == "Tablet") {
+				setAttributes({ tabletGrow: value })
+			} else {
+				setAttributes({ mobileGrow: value })
+			}
+		}}
+		isBlock>
+		<ToggleGroupControlOption
+			value=""
+			label={__("Not set", "flex-block")}
+		/>
+		<ToggleGroupControlOption
+			value="on"
+			label={__("On", "flex-block")}
+		/>
+		<ToggleGroupControlOption
+			value="off"
+			label={__("Off", "flex-block")}
+		/>
+	</ToggleGroupControl>
+}
+
+const SettingShrink = ({ setAttributes, attributes, device }) => {
+	return <ToggleGroupControl label={__("Shrink", "flex-block")}
+		value={device == "Desktop" ? attributes.shrink : device == "Tablet" ? attributes.tabletShrink : attributes.mobileShrink}
+		onChange={(value) => {
+			if (device == "Desktop") {
+				setAttributes({ shrink: value })
+			} else if (device == "Tablet") {
+				setAttributes({ tabletShrink: value })
+			} else {
+				setAttributes({ mobileShrink: value })
+			}
+		}}
+		isBlock>
+		<ToggleGroupControlOption
+			value=""
+			label={__("Not set", "flex-block")}
+		/>
+		<ToggleGroupControlOption
+			value="on"
+			label={__("On", "flex-block")}
+		/>
+		<ToggleGroupControlOption
+			value="off"
+			label={__("Off", "flex-block")}
+		/>
+	</ToggleGroupControl>
+}
+
+const SettingColumnGap = ({ setAttributes, attributes, device }) => {
+	return <>
+		<UnitControl
+			label={__('Column Gap', "flex-block")}
+			value={device == "Desktop" ? attributes.columnGap : device == "Tablet" ? attributes.tabletColumnGap : attributes.mobileColumnGap}
+			onChange={(value) => {
+				if (device == "Desktop") {
+					setAttributes({ columnGap: value })
+				} else if (device == "Tablet") {
+					setAttributes({ tabletColumnGap: value })
+				} else {
+					setAttributes({ mobileColumnGap: value })
+				}
+			}}
+			units={[
+				{ value: 'px', label: 'px', default: 0 },
+				{ value: 'em', label: 'em', default: 0 },
+				{ value: 'rem', label: 'rem', default: 0 },
+				{ value: '%', label: '%', default: 0 },
+				{ value: 'vh', label: 'vh', default: 0 },
+			]}
+		/></>
+}
+
+const SettingRowGap = ({ setAttributes, attributes, device }) => {
+	return <>
+		<UnitControl
+			label={__('Row Gap', "flex-block")}
+			value={device == "Desktop" ? attributes.rowGap : device == "Tablet" ? attributes.tabletRowGap : attributes.mobileRowGap}
+			onChange={(value) => {
+				if (device == "Desktop") {
+					setAttributes({ rowGap: value })
+				} else if (device == "Tablet") {
+					setAttributes({ tabletRowGap: value })
+				} else {
+					setAttributes({ mobileRowGap: value })
 				}
 			}}
 			units={[

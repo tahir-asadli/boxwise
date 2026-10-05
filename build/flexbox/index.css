@@ -60,12 +60,48 @@
   flex-direction: column;
 }
 
+.taufb--direction-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.taufb--direction-column-reverse {
+  flex-direction: column-reverse;
+}
+
 .taufb--wrap-wrap {
   flex-wrap: wrap;
 }
 
 .taufb--wrap-nowrap {
   flex-wrap: nowrap;
+}
+
+.taufb--display-none {
+  display: none;
+}
+
+.taufb--display-flex {
+  display: flex;
+}
+
+.taufb--display-inline-flex {
+  display: inline-flex;
+}
+
+.taufb--grow-on {
+  flex-grow: 1;
+}
+
+.taufb--grow-off {
+  flex-grow: 0;
+}
+
+.taufb--shrink-on {
+  flex-shrink: 1;
+}
+
+.taufb--shrink-off {
+  flex-shrink: 0;
 }
 
 @media (480px < width <= 782px) {
@@ -105,11 +141,38 @@
   .taufb--direction-tablet-column {
     flex-direction: column;
   }
+  .taufb--direction-tablet-row-reverse {
+    flex-direction: row-reverse;
+  }
+  .taufb--direction-tablet-column-reverse {
+    flex-direction: column-reverse;
+  }
   .taufb--wrap-tablet-wrap {
     flex-wrap: wrap;
   }
   .taufb--wrap-tablet-nowrap {
     flex-wrap: nowrap;
+  }
+  .taufb--display-tablet-none {
+    display: none;
+  }
+  .taufb--display-tablet-flex {
+    display: flex;
+  }
+  .taufb--display-tablet-inline-flex {
+    display: inline-flex;
+  }
+  .taufb--grow-tablet-on {
+    flex-grow: 1;
+  }
+  .taufb--grow-tablet-off {
+    flex-grow: 0;
+  }
+  .taufb--shrink-tablet-on {
+    flex-shrink: 1;
+  }
+  .taufb--shrink-tablet-off {
+    flex-shrink: 0;
   }
 }
 @media (width <= 480px) {
@@ -149,11 +212,38 @@
   .taufb--direction-mobile-column {
     flex-direction: column;
   }
+  .taufb--direction-mobile-row-reverse {
+    flex-direction: row-reverse;
+  }
+  .taufb--direction-mobile-column-reverse {
+    flex-direction: column-reverse;
+  }
   .taufb--wrap-mobile-wrap {
     flex-wrap: wrap;
   }
   .taufb--wrap-mobile-nowrap {
     flex-wrap: nowrap;
+  }
+  .taufb--display-mobile-none {
+    display: none;
+  }
+  .taufb--display-mobile-flex {
+    display: flex;
+  }
+  .taufb--display-mobile-inline-flex {
+    display: inline-flex;
+  }
+  .taufb--grow-mobile-on {
+    flex-grow: 1;
+  }
+  .taufb--grow-mobile-off {
+    flex-grow: 0;
+  }
+  .taufb--shrink-mobile-on {
+    flex-shrink: 1;
+  }
+  .taufb--shrink-mobile-off {
+    flex-shrink: 0;
   }
 }
 
