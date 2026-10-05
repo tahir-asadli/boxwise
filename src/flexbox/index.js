@@ -11,6 +11,10 @@ import { registerBlockType } from '@wordpress/blocks';
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
+
+// Icon
+import { ReactComponent as blockIcon } from "./icon.svg";
+
 import './style.scss';
 import Edit from './edit';
 import Save from './save';
@@ -25,6 +29,7 @@ registerBlockType(metadata.name, {
 	/**
 	 * @see ./edit.js
 	 */
+	icon: blockIcon,
 	edit: Edit,
 	save: Save
 });
