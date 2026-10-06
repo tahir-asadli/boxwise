@@ -50,6 +50,7 @@ final class Flexbox_Block
 	{
 		$this->id = wp_unique_id('taufb-');
 		$this->attributes = $attributes;
+		$this->add_inline_styles();
 	}
 
 	public function wrapper_attributes()
@@ -83,12 +84,11 @@ final class Flexbox_Block
 			}
 
 		}
-
 		return $classes;
 
 	}
 
-	public function get_styles(): string
+	public function add_inline_styles()
 	{
 		$css = '';
 		foreach (self::BREAKPOINTS as $breakpoint => $media) {
@@ -112,6 +112,15 @@ final class Flexbox_Block
 				$css .= sprintf('@media %s{#%s{%s}}', $media, $this->id, $rules);
 			}
 		}
-		return $css ? '<style>' . wp_strip_all_tags($css) . '</style>' : '';
+
+		if (!empty($css)) {
+			wp_register_style('ultimate-flexbox', false);
+			wp_enqueue_style('ultimate-flexbox');
+			wp_add_inline_style(
+				'ultimate-flexbox',
+				$css
+			);
+		}
+
 	}
 }

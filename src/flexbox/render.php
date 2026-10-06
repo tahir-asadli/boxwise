@@ -26,4 +26,3 @@ $ultimate_flexbox = new \UltimateFlexbox\Flexbox_Block($attributes);
 
 	?>
 </div>
-<?php echo $ultimate_flexbox->get_styles(); ?>
