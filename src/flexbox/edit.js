@@ -1,8 +1,3 @@
-// https://wordpress.github.io/gutenberg/
-// https://wordpress.github.io/gutenberg/?path=/story/icons-icon--library
-// https://github.com/tahir-asadli/block-booster/blob/main/src/flexbox/edit.js
-// https://wordpress.github.io/gutenberg/?path=/story/icons-icon--library
-
 /**
  * Retrieves the translation of text.
  *
@@ -24,7 +19,7 @@ import { InspectorControls, useBlockProps, useInnerBlocksProps, } from '@wordpre
  */
 import './editor.scss';
 import {
-	PanelBody, Button, __experimentalToggleGroupControl as ToggleGroupControl,
+	PanelBody, __experimentalToggleGroupControl as ToggleGroupControl,
 	__experimentalToggleGroupControlOption as ToggleGroupControlOption,
 	__experimentalToggleGroupControlOptionIcon as ToggleGroupControlOptionIcon,
 	__experimentalUnitControl as UnitControl
@@ -39,20 +34,6 @@ import {
  * @return {Element} Element to render.
  */
 
-// import {
-// 	AlignVerticalJustifyEnd,
-// 	AlignVerticalJustifyStart,
-// 	AlignVerticalJustifyCenter,
-// 	AlignVerticalDistributeCenter,
-// 	AlignVerticalSpaceBetween,
-// 	AlignStartVertical,
-// 	AlignEndVertical,
-// 	AlignHorizontalJustifyCenter,
-// 	AlignHorizontalSpaceBetween,
-// 	AlignHorizontalSpaceAround,
-// 	Ban,
-// } from "lucide-react";
-import { formatLowercase, formatUppercase, alignCenter } from '@wordpress/icons';
 import { classNames, getColumnGap, getRowGap, getWidth, ICONS, useDeviceType } from '../lib';
 
 
@@ -72,16 +53,11 @@ export default function Edit(props) {
 	});
 	const innerBlocksProps = useInnerBlocksProps(blockProps);
 	return <>
-		<InspectorControls>
+		<InspectorControls group={deviceType == "Desktop" ? "settings" : "viewport"}>
 			<PanelBody title={__('Flexbox settings', 'ultimate-flexbox')}>
 				{deviceType == "Desktop" ? <DesktopSettings setAttributes={setAttributes} attributes={props.attributes} /> : deviceType == "Tablet" ? <TabletSettings setAttributes={setAttributes} attributes={props.attributes} /> : <MobileSettings setAttributes={setAttributes} attributes={props.attributes} />}
 			</PanelBody>
-		</InspectorControls>
-		<InspectorControls group="viewport">
-			<PanelBody title={__('Flexbox settings', 'ultimate-flexbox')}>
-				{deviceType == "Desktop" ? <DesktopSettings setAttributes={setAttributes} attributes={props.attributes} /> : deviceType == "Tablet" ? <TabletSettings setAttributes={setAttributes} attributes={props.attributes} /> : <MobileSettings setAttributes={setAttributes} attributes={props.attributes} />}
-			</PanelBody>
-		</InspectorControls>
+		</InspectorControls >
 		<div {...innerBlocksProps}></div>
 	</>
 }

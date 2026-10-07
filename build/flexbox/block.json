@@ -94,15 +94,15 @@
     },
     "display": {
       "type": "string",
-      "default": "flex"
+      "default": ""
     },
     "tabletDisplay": {
       "type": "string",
-      "default": "flex"
+      "default": ""
     },
     "mobileDisplay": {
       "type": "string",
-      "default": "flex"
+      "default": ""
     },
     "grow": {
       "type": "string",
@@ -153,10 +153,9 @@
       "default": ""
     }
   },
-  "textdomain": "fbtt",
+  "textdomain": "ultimate-flexbox",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",
-  "render": "file:./render.php",
-  "viewScript": "file:./view.js"
+  "render": "file:./render.php"
 }

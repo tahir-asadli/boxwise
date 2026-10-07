@@ -99,15 +99,15 @@ return array(
 			),
 			'display' => array(
 				'type' => 'string',
-				'default' => 'flex'
+				'default' => ''
 			),
 			'tabletDisplay' => array(
 				'type' => 'string',
-				'default' => 'flex'
+				'default' => ''
 			),
 			'mobileDisplay' => array(
 				'type' => 'string',
-				'default' => 'flex'
+				'default' => ''
 			),
 			'grow' => array(
 				'type' => 'string',
@@ -158,11 +158,10 @@ return array(
 				'default' => ''
 			)
 		),
-		'textdomain' => 'fbtt',
+		'textdomain' => 'ultimate-flexbox',
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
-		'render' => 'file:./render.php',
-		'viewScript' => 'file:./view.js'
+		'render' => 'file:./render.php'
 	)
 );

@@ -56,11 +56,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../lib */ "./src/lib.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__);
-// https://wordpress.github.io/gutenberg/
-// https://wordpress.github.io/gutenberg/?path=/story/icons-icon--library
-// https://github.com/tahir-asadli/block-booster/blob/main/src/flexbox/edit.js
-// https://wordpress.github.io/gutenberg/?path=/story/icons-icon--library
-
 /**
  * Retrieves the translation of text.
  *
@@ -92,20 +87,6 @@ __webpack_require__.r(__webpack_exports__);
  * @return {Element} Element to render.
  */
 
-// import {
-// 	AlignVerticalJustifyEnd,
-// 	AlignVerticalJustifyStart,
-// 	AlignVerticalJustifyCenter,
-// 	AlignVerticalDistributeCenter,
-// 	AlignVerticalSpaceBetween,
-// 	AlignStartVertical,
-// 	AlignEndVertical,
-// 	AlignHorizontalJustifyCenter,
-// 	AlignHorizontalSpaceBetween,
-// 	AlignHorizontalSpaceAround,
-// 	Ban,
-// } from "lucide-react";
-
 
 
 function Edit(props) {
@@ -124,21 +105,7 @@ function Edit(props) {
   const innerBlocksProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useInnerBlocksProps)(blockProps);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Flexbox settings', 'ultimate-flexbox'),
-        children: deviceType == "Desktop" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(DesktopSettings, {
-          setAttributes: setAttributes,
-          attributes: props.attributes
-        }) : deviceType == "Tablet" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(TabletSettings, {
-          setAttributes: setAttributes,
-          attributes: props.attributes
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(MobileSettings, {
-          setAttributes: setAttributes,
-          attributes: props.attributes
-        })
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
-      group: "viewport",
+      group: deviceType == "Desktop" ? "settings" : "viewport",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
         title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Flexbox settings', 'ultimate-flexbox'),
         children: deviceType == "Desktop" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(DesktopSettings, {
@@ -2259,7 +2226,7 @@ const toPascalCase = (string) => {
   \********************************/
 (module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"ultimate-flexbox/ultimate-flexbox","version":"0.1.0","title":"Ultimate Flexbox","category":"widgets","icon":"smiley","description":"Ultimate Flexbox is Gutenberg block designed to enhance the WordPress block editor.","example":{},"supports":{"html":false,"color":{"background":true,"text":true},"typography":{"fontSize":true,"lineHeight":true,"textAlign":true},"background":{"backgroundImage":true,"backgroundSize":true},"shadow":true,"align":true,"alignWide":true,"spacing":{"margin":true,"padding":true}},"attributes":{"justifyContent":{"type":"string","default":""},"tabletJustifyContent":{"type":"string","default":""},"mobileJustifyContent":{"type":"string","default":""},"alignItems":{"type":"string","default":""},"tabletAlignItems":{"type":"string","default":""},"mobileAlignItems":{"type":"string","default":""},"direction":{"type":"string","default":""},"tabletDirection":{"type":"string","default":""},"mobileDirection":{"type":"string","default":""},"wrap":{"type":"string","default":""},"tabletWrap":{"type":"string","default":""},"mobileWrap":{"type":"string","default":""},"width":{"type":"string","default":""},"tabletWidth":{"type":"string","default":""},"mobileWidth":{"type":"string","default":""},"display":{"type":"string","default":"flex"},"tabletDisplay":{"type":"string","default":"flex"},"mobileDisplay":{"type":"string","default":"flex"},"grow":{"type":"string","default":""},"tabletGrow":{"type":"string","default":""},"mobileGrow":{"type":"string","default":""},"shrink":{"type":"string","default":""},"tabletShrink":{"type":"string","default":""},"mobileShrink":{"type":"string","default":""},"columnGap":{"type":"string","default":""},"tabletColumnGap":{"type":"string","default":""},"mobileColumnGap":{"type":"string","default":""},"rowGap":{"type":"string","default":""},"tabletRowGap":{"type":"string","default":""},"mobileRowGap":{"type":"string","default":""}},"textdomain":"fbtt","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"ultimate-flexbox/ultimate-flexbox","version":"0.1.0","title":"Ultimate Flexbox","category":"widgets","icon":"smiley","description":"Ultimate Flexbox is Gutenberg block designed to enhance the WordPress block editor.","example":{},"supports":{"html":false,"color":{"background":true,"text":true},"typography":{"fontSize":true,"lineHeight":true,"textAlign":true},"background":{"backgroundImage":true,"backgroundSize":true},"shadow":true,"align":true,"alignWide":true,"spacing":{"margin":true,"padding":true}},"attributes":{"justifyContent":{"type":"string","default":""},"tabletJustifyContent":{"type":"string","default":""},"mobileJustifyContent":{"type":"string","default":""},"alignItems":{"type":"string","default":""},"tabletAlignItems":{"type":"string","default":""},"mobileAlignItems":{"type":"string","default":""},"direction":{"type":"string","default":""},"tabletDirection":{"type":"string","default":""},"mobileDirection":{"type":"string","default":""},"wrap":{"type":"string","default":""},"tabletWrap":{"type":"string","default":""},"mobileWrap":{"type":"string","default":""},"width":{"type":"string","default":""},"tabletWidth":{"type":"string","default":""},"mobileWidth":{"type":"string","default":""},"display":{"type":"string","default":""},"tabletDisplay":{"type":"string","default":""},"mobileDisplay":{"type":"string","default":""},"grow":{"type":"string","default":""},"tabletGrow":{"type":"string","default":""},"mobileGrow":{"type":"string","default":""},"shrink":{"type":"string","default":""},"tabletShrink":{"type":"string","default":""},"mobileShrink":{"type":"string","default":""},"columnGap":{"type":"string","default":""},"tabletColumnGap":{"type":"string","default":""},"mobileColumnGap":{"type":"string","default":""},"rowGap":{"type":"string","default":""},"tabletRowGap":{"type":"string","default":""},"mobileRowGap":{"type":"string","default":""}},"textdomain":"ultimate-flexbox","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php"}');
 
 /***/ }
 
