@@ -3,7 +3,7 @@
  * Plugin Name:       Ultimate Flexbox
  * Description:       Ultimate Flexbox is Gutenberg block designed to enhance the WordPress block editor.
  * Version:           0.1.0
- * Requires at least: 7.2
+ * Requires at least: 7.1
  * Requires PHP:      7.4
  * Author:            Tahir Asadli
  * Author URI:        https://tahir-asadli.github.io
