@@ -940,96 +940,20 @@ const getRowGap = (deviceType, attributes) => {
     return attributes.mobileRowGap ? attributes.mobileRowGap : undefined;
   }
 };
+const CLASS_PROPS = [['justify', 'justifyContent'], ['align', 'alignItems'], ['direction', 'direction'], ['wrap', 'wrap'], ['display', 'display'], ['grow', 'grow'], ['shrink', 'shrink']];
+const DEVICES = ['', 'tablet', 'mobile'];
 const classNames = attributes => {
-  const {
-    justifyContent,
-    tabletJustifyContent,
-    mobileJustifyContent,
-    alignItems,
-    tabletAlignItems,
-    mobileAlignItems,
-    direction,
-    tabletDirection,
-    mobileDirection,
-    wrap,
-    tabletWrap,
-    mobileWrap,
-    display,
-    tabletDisplay,
-    mobileDisplay,
-    grow,
-    tabletGrow,
-    mobileGrow,
-    shrink,
-    tabletShrink,
-    mobileShrink
-  } = attributes;
-  const classNames = [];
-  classNames.push("taufb");
-  if (justifyContent) {
-    classNames.push(`taufb--justify-${justifyContent}`);
+  const classes = ['taufb'];
+  for (const [slug, attr] of CLASS_PROPS) {
+    const cap = attr.charAt(0).toUpperCase() + attr.slice(1);
+    for (const device of DEVICES) {
+      const value = attributes[device ? `${device}${cap}` : attr];
+      if (value) {
+        classes.push(`taufb--${slug}-${device ? `${device}-` : ''}${value}`);
+      }
+    }
   }
-  if (tabletJustifyContent) {
-    classNames.push(`taufb--justify-tablet-${tabletJustifyContent}`);
-  }
-  if (mobileJustifyContent) {
-    classNames.push(`taufb--justify-mobile-${mobileJustifyContent}`);
-  }
-  if (alignItems) {
-    classNames.push(`taufb--align-${alignItems}`);
-  }
-  if (tabletAlignItems) {
-    classNames.push(`taufb--align-tablet-${tabletAlignItems}`);
-  }
-  if (mobileAlignItems) {
-    classNames.push(`taufb--align-mobile-${mobileAlignItems}`);
-  }
-  if (direction) {
-    classNames.push(`taufb--direction-${direction}`);
-  }
-  if (tabletDirection) {
-    classNames.push(`taufb--direction-tablet-${tabletDirection}`);
-  }
-  if (mobileDirection) {
-    classNames.push(`taufb--direction-mobile-${mobileDirection}`);
-  }
-  if (wrap) {
-    classNames.push(`taufb--wrap-${wrap}`);
-  }
-  if (tabletWrap) {
-    classNames.push(`taufb--wrap-tablet-${tabletWrap}`);
-  }
-  if (mobileWrap) {
-    classNames.push(`taufb--wrap-mobile-${mobileWrap}`);
-  }
-  if (display) {
-    classNames.push(`taufb--display-${display}`);
-  }
-  if (tabletDisplay) {
-    classNames.push(`taufb--display-tablet-${tabletDisplay}`);
-  }
-  if (mobileDisplay) {
-    classNames.push(`taufb--display-mobile-${mobileDisplay}`);
-  }
-  if (grow) {
-    classNames.push(`taufb--grow-${grow}`);
-  }
-  if (tabletGrow) {
-    classNames.push(`taufb--grow-tablet-${tabletGrow}`);
-  }
-  if (mobileGrow) {
-    classNames.push(`taufb--grow-mobile-${mobileGrow}`);
-  }
-  if (shrink) {
-    classNames.push(`taufb--shrink-${shrink}`);
-  }
-  if (tabletShrink) {
-    classNames.push(`taufb--shrink-tablet-${tabletShrink}`);
-  }
-  if (mobileShrink) {
-    classNames.push(`taufb--shrink-mobile-${mobileShrink}`);
-  }
-  return classNames;
+  return classes;
 };
 
 /***/ },
