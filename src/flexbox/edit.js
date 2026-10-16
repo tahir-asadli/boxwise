@@ -52,9 +52,11 @@ export default function Edit(props) {
 		}
 	});
 	const innerBlocksProps = useInnerBlocksProps(blockProps);
+	console.log('deviceType', deviceType);
+
 	return <>
 		<InspectorControls group={deviceType == "Desktop" ? "settings" : "viewport"}>
-			<PanelBody title={__('Flexbox settings', 'ultimate-flexbox')}>
+			<PanelBody title={__('Flexbox settings', 'boxwise')}>
 				{deviceType == "Desktop" ? <DesktopSettings setAttributes={setAttributes} attributes={props.attributes} /> : deviceType == "Tablet" ? <TabletSettings setAttributes={setAttributes} attributes={props.attributes} /> : <MobileSettings setAttributes={setAttributes} attributes={props.attributes} />}
 			</PanelBody>
 		</InspectorControls >
@@ -107,7 +109,7 @@ const MobileSettings = ({ setAttributes, attributes }) => {
 }
 
 const SettingJustifyContent = ({ setAttributes, attributes, device }) => {
-	return <ToggleGroupControl label={__("Justify content", "ultimate-flexbox")}
+	return <ToggleGroupControl label={__("Justify content", "boxwise")}
 		value={device == "Desktop" ? attributes.justifyContent : device == "Tablet" ? attributes.tabletJustifyContent : attributes.mobileJustifyContent}
 		onChange={(value) => {
 			if (device == "Desktop") {
@@ -122,38 +124,38 @@ const SettingJustifyContent = ({ setAttributes, attributes, device }) => {
 		<ToggleGroupControlOptionIcon
 			value=""
 			icon={<ICONS.Ban />}
-			label={__("Not set", "ultimate-flexbox")}
+			label={__("Not set", "boxwise")}
 		/>
 		<ToggleGroupControlOptionIcon
 			value="flex-start"
 			icon={<ICONS.HStart />}
-			label={__("Flex start", "ultimate-flexbox")}
+			label={__("Flex start", "boxwise")}
 		/>
 		<ToggleGroupControlOptionIcon
 			value="flex-end"
 			icon={<ICONS.HEnd />}
-			label={__("Flex end", "ultimate-flexbox")}
+			label={__("Flex end", "boxwise")}
 		/>
 		<ToggleGroupControlOptionIcon
 			value="center"
 			icon={<ICONS.HJustifyCenter />}
-			label={__("Justify center", "ultimate-flexbox")}
+			label={__("Justify center", "boxwise")}
 		/>
 		<ToggleGroupControlOptionIcon
 			value="space-between"
 			icon={<ICONS.HSpaceBetween />}
-			label={__("Space between", "ultimate-flexbox")}
+			label={__("Space between", "boxwise")}
 		/>
 		<ToggleGroupControlOptionIcon
 			value="space-around"
 			icon={<ICONS.HSpaceAround />}
-			label={__("Space around", "ultimate-flexbox")}
+			label={__("Space around", "boxwise")}
 		/>
 	</ToggleGroupControl>
 }
 
 const SettingAlignItems = ({ setAttributes, attributes, device }) => {
-	return <ToggleGroupControl label={__("Align Items", "ultimate-flexbox")}
+	return <ToggleGroupControl label={__("Align Items", "boxwise")}
 		value={device == "Desktop" ? attributes.alignItems : device == "Tablet" ? attributes.tabletAlignItems : attributes.mobileAlignItems}
 		onChange={(value) => {
 			if (device == "Desktop") {
@@ -168,38 +170,38 @@ const SettingAlignItems = ({ setAttributes, attributes, device }) => {
 		<ToggleGroupControlOptionIcon
 			value=""
 			icon={<ICONS.Ban />}
-			label={__("Not set", "ultimate-flexbox")}
+			label={__("Not set", "boxwise")}
 		/>
 		<ToggleGroupControlOptionIcon
 			value="flex-start"
 			icon={<ICONS.VJustifyStart />}
-			label={__("Flex start", "ultimate-flexbox")}
+			label={__("Flex start", "boxwise")}
 		/>
 		<ToggleGroupControlOptionIcon
 			value="flex-end"
 			icon={<ICONS.VJustifyEnd />}
-			label={__("Flex end", "ultimate-flexbox")}
+			label={__("Flex end", "boxwise")}
 		/>
 		<ToggleGroupControlOptionIcon
 			value="center"
 			icon={<ICONS.VJustifyCenter />}
-			label={__("Center", "ultimate-flexbox")}
+			label={__("Center", "boxwise")}
 		/>
 		<ToggleGroupControlOptionIcon
 			value="baseline"
 			icon={<ICONS.VDistributeCenter />}
-			label={__("Baseline", "ultimate-flexbox")}
+			label={__("Baseline", "boxwise")}
 		/>
 		<ToggleGroupControlOptionIcon
 			value="stretch"
 			icon={<ICONS.HStrech />}
-			label={__("Stretch", "ultimate-flexbox")}
+			label={__("Stretch", "boxwise")}
 		/>
 	</ToggleGroupControl>
 }
 
 const SettingDirection = ({ setAttributes, attributes, device }) => {
-	return <ToggleGroupControl label={__("Direction", "ultimate-flexbox")}
+	return <ToggleGroupControl label={__("Direction", "boxwise")}
 		value={device == "Desktop" ? attributes.direction : device == "Tablet" ? attributes.tabletDirection : attributes.mobileDirection}
 		onChange={(value) => {
 			if (device == "Desktop") {
@@ -214,33 +216,33 @@ const SettingDirection = ({ setAttributes, attributes, device }) => {
 		<ToggleGroupControlOptionIcon
 			value=""
 			icon={<ICONS.Ban />}
-			label={__("Not set", "ultimate-flexbox")}
+			label={__("Not set", "boxwise")}
 		/>
 		<ToggleGroupControlOptionIcon
 			value="column"
 			icon={<ICONS.ArrowDown />}
-			label={__("Column", "ultimate-flexbox")}
+			label={__("Column", "boxwise")}
 		/>
 		<ToggleGroupControlOptionIcon
 			value="row"
 			icon={<ICONS.ArrowRight />}
-			label={__("Row", "ultimate-flexbox")}
+			label={__("Row", "boxwise")}
 		/>
 		<ToggleGroupControlOptionIcon
 			value="column-reverse"
 			icon={<ICONS.ArrowUp />}
-			label={__("Column reverse", "ultimate-flexbox")}
+			label={__("Column reverse", "boxwise")}
 		/>
 		<ToggleGroupControlOptionIcon
 			value="row-reverse"
 			icon={<ICONS.ArrowLeft />}
-			label={__("Row reverse", "ultimate-flexbox")}
+			label={__("Row reverse", "boxwise")}
 		/>
 	</ToggleGroupControl>
 }
 
 const SettingWrap = ({ setAttributes, attributes, device }) => {
-	return <ToggleGroupControl label={__("Wrap", "ultimate-flexbox")}
+	return <ToggleGroupControl label={__("Wrap", "boxwise")}
 		value={device == "Desktop" ? attributes.wrap : device == "Tablet" ? attributes.tabletWrap : attributes.mobileWrap}
 		onChange={(value) => {
 			if (device == "Desktop") {
@@ -254,15 +256,15 @@ const SettingWrap = ({ setAttributes, attributes, device }) => {
 		isBlock>
 		<ToggleGroupControlOption
 			value=""
-			label={__("Not set", "ultimate-flexbox")}
+			label={__("Not set", "boxwise")}
 		/>
 		<ToggleGroupControlOption
 			value="wrap"
-			label={__("Wrap", "ultimate-flexbox")}
+			label={__("Wrap", "boxwise")}
 		/>
 		<ToggleGroupControlOption
 			value="nowrap"
-			label={__("No wrap", "ultimate-flexbox")}
+			label={__("No wrap", "boxwise")}
 		/>
 	</ToggleGroupControl>
 }
@@ -270,8 +272,8 @@ const SettingWrap = ({ setAttributes, attributes, device }) => {
 const SettingWidth = ({ setAttributes, attributes, device }) => {
 	return <>
 		<UnitControl
-			label={__('Width', "ultimate-flexbox")}
-			placeholder={__('Initial', "ultimate-flexbox")}
+			label={__('Width', "boxwise")}
+			placeholder={__('Initial', "boxwise")}
 			value={device == "Desktop" ? attributes.width : device == "Tablet" ? attributes.tabletWidth : attributes.mobileWidth}
 			onChange={(value) => {
 				if (device == "Desktop") {
@@ -293,7 +295,7 @@ const SettingWidth = ({ setAttributes, attributes, device }) => {
 }
 
 const SettingDisplay = ({ setAttributes, attributes, device }) => {
-	return <ToggleGroupControl label={__("Display", "ultimate-flexbox")}
+	return <ToggleGroupControl label={__("Display", "boxwise")}
 		value={device == "Desktop" ? attributes.display : device == "Tablet" ? attributes.tabletDisplay : attributes.mobileDisplay}
 		onChange={(value) => {
 			if (device == "Desktop") {
@@ -307,21 +309,21 @@ const SettingDisplay = ({ setAttributes, attributes, device }) => {
 		isBlock>
 		<ToggleGroupControlOption
 			value="none"
-			label={__("None", "ultimate-flexbox")}
+			label={__("None", "boxwise")}
 		/>
 		<ToggleGroupControlOption
 			value="flex"
-			label={__("Flex", "ultimate-flexbox")}
+			label={__("Flex", "boxwise")}
 		/>
 		<ToggleGroupControlOption
 			value="inline-flex"
-			label={__("Inline Flex", "ultimate-flexbox")}
+			label={__("Inline Flex", "boxwise")}
 		/>
 	</ToggleGroupControl>
 }
 
 const SettingGrow = ({ setAttributes, attributes, device }) => {
-	return <ToggleGroupControl label={__("Grow", "ultimate-flexbox")}
+	return <ToggleGroupControl label={__("Grow", "boxwise")}
 		value={device == "Desktop" ? attributes.grow : device == "Tablet" ? attributes.tabletGrow : attributes.mobileGrow}
 		onChange={(value) => {
 			if (device == "Desktop") {
@@ -335,21 +337,21 @@ const SettingGrow = ({ setAttributes, attributes, device }) => {
 		isBlock>
 		<ToggleGroupControlOption
 			value=""
-			label={__("Not set", "ultimate-flexbox")}
+			label={__("Not set", "boxwise")}
 		/>
 		<ToggleGroupControlOption
 			value="on"
-			label={__("On", "ultimate-flexbox")}
+			label={__("On", "boxwise")}
 		/>
 		<ToggleGroupControlOption
 			value="off"
-			label={__("Off", "ultimate-flexbox")}
+			label={__("Off", "boxwise")}
 		/>
 	</ToggleGroupControl>
 }
 
 const SettingShrink = ({ setAttributes, attributes, device }) => {
-	return <ToggleGroupControl label={__("Shrink", "ultimate-flexbox")}
+	return <ToggleGroupControl label={__("Shrink", "boxwise")}
 		value={device == "Desktop" ? attributes.shrink : device == "Tablet" ? attributes.tabletShrink : attributes.mobileShrink}
 		onChange={(value) => {
 			if (device == "Desktop") {
@@ -363,15 +365,15 @@ const SettingShrink = ({ setAttributes, attributes, device }) => {
 		isBlock>
 		<ToggleGroupControlOption
 			value=""
-			label={__("Not set", "ultimate-flexbox")}
+			label={__("Not set", "boxwise")}
 		/>
 		<ToggleGroupControlOption
 			value="on"
-			label={__("On", "ultimate-flexbox")}
+			label={__("On", "boxwise")}
 		/>
 		<ToggleGroupControlOption
 			value="off"
-			label={__("Off", "ultimate-flexbox")}
+			label={__("Off", "boxwise")}
 		/>
 	</ToggleGroupControl>
 }
@@ -379,8 +381,8 @@ const SettingShrink = ({ setAttributes, attributes, device }) => {
 const SettingColumnGap = ({ setAttributes, attributes, device }) => {
 	return <>
 		<UnitControl
-			label={__('Column Gap', "ultimate-flexbox")}
-			placeholder={__('Initial', "ultimate-flexbox")}
+			label={__('Column Gap', "boxwise")}
+			placeholder={__('Initial', "boxwise")}
 			value={device == "Desktop" ? attributes.columnGap : device == "Tablet" ? attributes.tabletColumnGap : attributes.mobileColumnGap}
 			onChange={(value) => {
 				if (device == "Desktop") {
@@ -404,8 +406,8 @@ const SettingColumnGap = ({ setAttributes, attributes, device }) => {
 const SettingRowGap = ({ setAttributes, attributes, device }) => {
 	return <>
 		<UnitControl
-			label={__('Row Gap', "ultimate-flexbox")}
-			placeholder={__('Initial', "ultimate-flexbox")}
+			label={__('Row Gap', "boxwise")}
+			placeholder={__('Initial', "boxwise")}
 			value={device == "Desktop" ? attributes.rowGap : device == "Tablet" ? attributes.tabletRowGap : attributes.mobileRowGap}
 			onChange={(value) => {
 				if (device == "Desktop") {

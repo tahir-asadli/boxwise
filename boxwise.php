@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name:       Ultimate Flexbox
- * Description:       Ultimate Flexbox is Gutenberg block designed to enhance the WordPress block editor.
+ * Plugin Name:       Boxwise
+ * Description:       Boxwise is Gutenberg block designed to enhance the WordPress block editor.
  * Version:           0.1.0
  * Requires at least: 7.1
  * Requires PHP:      7.4
@@ -9,9 +9,9 @@
  * Author URI:        https://tahir-asadli.github.io
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       ultimate-flexbox
+ * Text Domain:       boxwise
  *
- * @package ultimate-flexbox
+ * @package boxwise
  */
 
 if (!defined('ABSPATH')) {
@@ -19,6 +19,8 @@ if (!defined('ABSPATH')) {
 }
 
 require_once __DIR__ . '/includes/class-flexbox-block.php';
+debug_log(['11' => 'asd1239', 'ald' => '12312'], 'aaa', 10, false);
+
 
 
 /**

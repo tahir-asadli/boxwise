@@ -1,11 +1,11 @@
 <?php
 /**
- * Ultimate Flexbox
+ * Boxwise
  *
- * @package ultimate-flexbox
+ * @package boxwise
  */
 
-namespace UltimateFlexbox;
+namespace BoxWise;
 
 
 if (!defined('ABSPATH')) {
@@ -107,17 +107,15 @@ final class Flexbox_Block
 					$rules .= $declaration . ';';
 				}
 			}
-
 			if ($rules) {
 				$css .= sprintf('@media %s{#%s{%s}}', $media, $this->id, $rules);
 			}
 		}
-
 		if (!empty($css)) {
-			wp_register_style('ultimate-flexbox', false);
-			wp_enqueue_style('ultimate-flexbox');
+			wp_register_style('boxwise', false);
+			wp_enqueue_style('boxwise');
 			wp_add_inline_style(
-				'ultimate-flexbox',
+				'boxwise',
 				$css
 			);
 		}

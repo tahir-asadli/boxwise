@@ -4,12 +4,12 @@ return array(
 	'flexbox' => array(
 		'$schema' => 'https://schemas.wp.org/trunk/block.json',
 		'apiVersion' => 3,
-		'name' => 'ultimate-flexbox/ultimate-flexbox',
+		'name' => 'boxwise/boxwise',
 		'version' => '0.1.0',
-		'title' => 'Ultimate Flexbox',
+		'title' => 'Boxwise',
 		'category' => 'widgets',
 		'icon' => 'smiley',
-		'description' => 'Ultimate Flexbox is Gutenberg block designed to enhance the WordPress block editor.',
+		'description' => 'Boxwise is Gutenberg block designed to enhance the WordPress block editor.',
 		'example' => array(
 			
 		),
@@ -29,11 +29,19 @@ return array(
 				'backgroundSize' => true
 			),
 			'shadow' => true,
-			'align' => true,
-			'alignWide' => true,
+			'align' => array(
+				'wide',
+				'full'
+			),
 			'spacing' => array(
 				'margin' => true,
 				'padding' => true
+			),
+			'__experimentalBorder' => array(
+				'radius' => true,
+				'color' => false,
+				'width' => false,
+				'style' => false
 			)
 		),
 		'attributes' => array(
@@ -158,7 +166,7 @@ return array(
 				'default' => ''
 			)
 		),
-		'textdomain' => 'ultimate-flexbox',
+		'textdomain' => 'boxwise',
 		'editorScript' => 'file:./index.js',
 		'editorStyle' => 'file:./index.css',
 		'style' => 'file:./style-index.css',
