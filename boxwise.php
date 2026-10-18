@@ -19,9 +19,6 @@ if (!defined('ABSPATH')) {
 }
 
 require_once __DIR__ . '/includes/class-flexbox-block.php';
-debug_log(['11' => 'asd1239', 'ald' => '12312'], 'aaa', 10, false);
-
-
 
 /**
  * Registers the block(s) metadata from the `blocks-manifest.php` and registers the block type(s)
@@ -31,8 +28,24 @@ debug_log(['11' => 'asd1239', 'ald' => '12312'], 'aaa', 10, false);
  * @see https://make.wordpress.org/core/2025/03/13/more-efficient-block-type-registration-in-6-8/
  * @see https://make.wordpress.org/core/2024/10/17/new-block-type-registration-apis-to-improve-performance-in-wordpress-6-7/
  */
-function ultimate_flexbox_block_init()
+function boxwise_block_init()
 {
 	wp_register_block_types_from_metadata_collection(__DIR__ . '/build', __DIR__ . '/build/blocks-manifest.php');
 }
-add_action('init', 'ultimate_flexbox_block_init');
+add_action('init', 'boxwise_block_init');
+
+
+function boxwise_block_alter_core_group($block_content, $block)
+{
+	if (isset($block['attrs']['css_position']) && '' !== $block['attrs']['css_position']) {
+		$processor = new WP_HTML_Tag_Processor($block_content);
+		if ($processor->next_tag('div')) {
+			$css_position_class = 'css-position-' . $block['attrs']['css_position'];
+			$processor->add_class($css_position_class);
+			$block_content = $processor->get_updated_html();
+		}
+	}
+	return $block_content;
+}
+
+add_filter('render_block_core/group', 'boxwise_block_alter_core_group', 10, 2);
