@@ -52,7 +52,6 @@ export default function Edit(props) {
 		}
 	});
 	const innerBlocksProps = useInnerBlocksProps(blockProps);
-	console.log('deviceType', deviceType);
 
 	return <>
 		<InspectorControls group={deviceType == "Desktop" ? "settings" : "viewport"}>
