@@ -33,19 +33,3 @@ function boxwise_block_init()
 	wp_register_block_types_from_metadata_collection(__DIR__ . '/build', __DIR__ . '/build/blocks-manifest.php');
 }
 add_action('init', 'boxwise_block_init');
-
-
-function boxwise_block_alter_core_group($block_content, $block)
-{
-	if (isset($block['attrs']['css_position']) && '' !== $block['attrs']['css_position']) {
-		$processor = new WP_HTML_Tag_Processor($block_content);
-		if ($processor->next_tag('div')) {
-			$css_position_class = 'css-position-' . $block['attrs']['css_position'];
-			$processor->add_class($css_position_class);
-			$block_content = $processor->get_updated_html();
-		}
-	}
-	return $block_content;
-}
-
-add_filter('render_block_core/group', 'boxwise_block_alter_core_group', 10, 2);
