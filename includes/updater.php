@@ -2,9 +2,9 @@
 
 class My_Plugin_Updater
 {
-  private $slug = 'enhance_gutenberg';                    // plugin folder name
-  private $plugin_file = 'enhance_gutenberg/enhance_gutenberg.php';      // folder/main-file.php
-  private $json_url = 'https://example.com/updates/enhance_gutenberg.json';
+  private $slug = 'boxwise';                    // plugin folder name
+  private $plugin_file = 'boxwise/boxwise.php';      // folder/main-file.php
+  private $json_url = 'https://example.com/updates/boxwise.json';
   private $version;
 
   public function __construct($version)
@@ -17,8 +17,8 @@ class My_Plugin_Updater
   public function _plugin_info()
   {
     return (object) [
-      'name' => 'My Plugin',
-      'slug' => 'enhance_gutenberg',
+      'name' => 'Boxwise',
+      'slug' => 'boxwise',
       'version' => '0.1.0',
       'requires' => '',
       'tested' => '',
@@ -69,7 +69,7 @@ class My_Plugin_Updater
       'slug' => $this->slug,
       'plugin' => $this->plugin_file,
       'new_version' => '0.1.1',
-      'package' => 'https://example.com/updates/enhance_gutenberg.json',
+      'package' => 'https://example.com/updates/boxwise.json',
       'tested' => '',
       'requires_php' => '',
       'url' => 'https://example.com/my-plugin',
@@ -87,14 +87,14 @@ class My_Plugin_Updater
       return $result;
     }
     return (object) [
-      'name' => 'My Plugin',
+      'name' => 'Boxwise',
       'slug' => $this->slug,
       'version' => $remote->version,
       'requires' => $remote->requires ?? '',
       'tested' => $remote->tested ?? '',
       'requires_php' => $remote->requires_php ?? '',
       'last_updated' => $remote->last_updated ?? '',
-      'download_link' => 'https://github.com/tahir-asadli/ultimate-flexbox/archive/refs/tags/0.1.0.zip',
+      'download_link' => 'https://github.com/tahir-asadli/ultimate-flexbox/archive/refs/tags/0.1.2.zip',
       'sections' => (array) ($remote->sections ?? []),
     ];
   }
