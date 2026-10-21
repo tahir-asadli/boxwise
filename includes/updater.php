@@ -19,7 +19,7 @@ class My_Plugin_Updater
     return (object) [
       'name' => 'Boxwise',
       'slug' => 'boxwise',
-      'version' => '0.1.0',
+      'version' => '0.1.1',
       'requires' => '',
       'tested' => '',
       'requires_php' => '',
@@ -68,8 +68,8 @@ class My_Plugin_Updater
     $transient->response[$this->plugin_file] = (object) [
       'slug' => $this->slug,
       'plugin' => $this->plugin_file,
-      'new_version' => '0.1.1',
-      'package' => 'https://example.com/updates/boxwise.json',
+      'new_version' => '0.1.2',
+      'package' => 'https://github.com/tahir-asadli/ultimate-flexbox/archive/refs/tags/0.1.2.zip',
       'tested' => '',
       'requires_php' => '',
       'url' => 'https://example.com/my-plugin',
