@@ -19,12 +19,12 @@ class My_Plugin_Updater
     return (object) [
       'name' => 'Boxwise',
       'slug' => 'boxwise',
-      'version' => '0.1.1',
+      'version' => '0.1.2',
       'requires' => '',
       'tested' => '',
       'requires_php' => '',
       'last_updated' => '',
-      'download_link' => '',
+      'download_link' => 'https://github.com/tahir-asadli/ultimate-flexbox/archive/refs/tags/0.1.2.zip',
       'sections' => [],
     ];
   }
