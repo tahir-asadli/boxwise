@@ -19,6 +19,9 @@ if (!defined('ABSPATH')) {
 }
 
 require_once __DIR__ . '/includes/class-flexbox-block.php';
+require_once __DIR__ . '/includes/updater.php';
+
+new My_Plugin_Updater('0.1.0');
 
 /**
  * Registers the block(s) metadata from the `blocks-manifest.php` and registers the block type(s)
