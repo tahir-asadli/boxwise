@@ -100,15 +100,17 @@ class GitHubUpdater
     // }
 
     $data = $this->get_plugin_info();
-    $transient->response[$this->plugin_file] = (object) [
-      'slug' => $this->slug,
-      'plugin' => $this->plugin_file,
-      'new_version' => $data->version ?? '',
-      'package' => $data->download_link ?? '',
-      'tested' => $data->tested ?? '',
-      'requires_php' => $data->requires_php ?? '',
-      'url' => 'https://github.com/' . $this->repo,
-    ];
+    if ($data && version_compare($this->version, $data->version, '<')) {
+      $transient->response[$this->plugin_file] = (object) [
+        'slug' => $this->slug,
+        'plugin' => $this->plugin_file,
+        'new_version' => $data->version ?? '',
+        'package' => $data->download_link ?? '',
+        'tested' => $data->tested ?? '',
+        'requires_php' => $data->requires_php ?? '',
+        'url' => 'https://github.com/' . $this->repo,
+      ];
+    }
     return $transient;
   }
 
