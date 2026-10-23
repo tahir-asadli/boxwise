@@ -20,7 +20,7 @@ class GitHubUpdater
 
   public function get_plugin_info()
   {
-    $readme_file_url = 'https://raw.githubusercontent.com/' . $this->repo . '/refs/heads/main/readme.txt';
+    $readme_file_url = 'https://raw.githubusercontent.com/' . $this->repo . '/refs/heads/main/readme.txt?time=' . time();
     try {
       $data = get_file_data($readme_file_url, array(
         'stable_tag' => 'Stable tag',
@@ -37,7 +37,7 @@ class GitHubUpdater
           'tested' => $data['tested_up_to'],
           'requires_php' => $data['requires_php'],
           'last_updated' => '',
-          'download_link' => 'https://github.com/' . $this->repo . '/archive/refs/tags/' . $data['stable_tag'] . '.zip',
+          'download_link' => 'https://github.com/' . $this->repo . '/archive/refs/tags/' . $this->slug . '.zip',
           'sections' => [],
         ];
       }
