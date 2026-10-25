@@ -14,10 +14,10 @@ jobs:
 
       - name: Create clean ZIP package
         run: |
-          mkdir ultimate-flexbox
+          mkdir boxwise
           # Copy your plugin files into a folder named after your plugin slug
-          rsync -av --exclude='.git*' --exclude='.github*' ./ package/ultimate-flexbox/
-          cd package && zip -r ../boxwise.zip ultimate-flexbox/
+          rsync -av --exclude='.git*' --exclude='.github*' ./ package/boxwise/
+          cd package && zip -r ../boxwise.zip boxwise/
 
       - name: Create GitHub Release and Upload Asset
         uses: softprops/action-gh-release@v2
