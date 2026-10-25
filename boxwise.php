@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Boxwise
  * Description:       Boxwise is Gutenberg block designed to enhance the WordPress block editor.
- * Version:           0.1.12
+ * Version:           0.1.15
  * Requires at least: 7.1
  * Requires PHP:      7.4
  * Author:            Tahir Asadli

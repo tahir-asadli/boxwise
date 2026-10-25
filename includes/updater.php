@@ -38,7 +38,7 @@ class GitHubUpdater
           'requires_php' => $data['requires_php'],
           'last_updated' => '',
           // 'download_link' => 'https://github.com/' . $this->repo . '/archive/refs/tags/' . $this->slug . '.zip',
-          'download_link' => 'https://github.com/' . $this->repo . '/releases/download/v' . $data['stable_tag'] . '/' . $this->slug . '.zip',
+          'download_link' => 'https://github.com/' . $this->repo . '/releases/download/' . $data['stable_tag'] . '/' . $this->slug . '.zip',
           'sections' => [],
         ];
       }
