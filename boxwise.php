@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Boxwise
  * Description:       Boxwise is Gutenberg block designed to enhance the WordPress block editor.
- * Version:           0.1.16
+ * Version:           0.1.17
  * Requires at least: 7.1
  * Requires PHP:      7.4
  * Author:            Tahir Asadli
@@ -21,7 +21,7 @@ if (!defined('ABSPATH')) {
 require_once __DIR__ . '/includes/class-flexbox-block.php';
 require_once __DIR__ . '/includes/updater.php';
 
-new GitHubUpdater('0.1.16', 'boxwise', 'boxwise/boxwise.php', 'tahir-asadli/boxwise');
+new GitHubUpdater('0.1.17', 'boxwise', 'boxwise/boxwise.php', 'tahir-asadli/boxwise');
 
 /**
  * Registers the block(s) metadata from the `blocks-manifest.php` and registers the block type(s)
